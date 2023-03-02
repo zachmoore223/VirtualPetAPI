@@ -32,4 +32,8 @@ public class OrganicDog {
     public void setHunger(int hunger) {
         this.hunger = hunger;
     }
+
+    public void feed() {
+        this.hunger = 0;
+    }
 }
