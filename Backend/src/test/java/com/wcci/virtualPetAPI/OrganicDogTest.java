@@ -8,13 +8,13 @@ class OrganicDogTest {
 
     @Test
     public void testAddOrganicDogReturnsId() {
-        OrganicDog organicDog = new OrganicDog(1);
+        OrganicDog organicDog = new OrganicDog(1, "Fido");
         assertEquals(1, organicDog.getId());
     }
 
     @Test
-    public void testSetAndReturnName() {
-        OrganicDog organicDog = new OrganicDog(1);
-        organicDog.setName(),"Fido";
+    public void testConstructAndReturnName() {
+        OrganicDog organicDog = new OrganicDog(1, "Fido");
         assertEquals("Fido", organicDog.getName());
+    }
 }

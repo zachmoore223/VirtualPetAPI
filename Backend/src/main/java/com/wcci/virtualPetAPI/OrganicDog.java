@@ -2,16 +2,25 @@ package com.wcci.virtualPetAPI;
 
 public class OrganicDog {
 
-    private final long id;
+    private long id;
+    private String name;
 
-    public OrganicDog(long id) {
+    public OrganicDog(long id, String name) {
         this.id = id;
+        this.name = name;
     }
 
     public long getId() {
-        return id;
+        return this.id;
     }
 
-    public void setId() {
+    public void setId(long id) {
+        this.id = id;
+    }
+    public String getName() {
+        return this.name;
+    }
+
+    public void setName() {
     }
 }
