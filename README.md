@@ -11,6 +11,64 @@ Now we will take Virtual pet to its logical conclusion! A fully functional MVC a
 - PUT/shelter/{shelterID}/{petID} - (PUT) Perform actions upon or see the status (GET) of a single pet who is a guest of a particular shelter
 - PUT /shelter/{shelterID} -Perform actions upon or see the status of all pets who are guests of a particular shelter
 
+# User Stories
+
+- AS a user I want a pet shelter that houses a pet that I can feed.
+- As a user I want to see a list of all the shelters.
+- As a user I need to create new shelters so that I can add pets to it.
+- AS a user I need to see all the pets in all the shelters on one screen so that I can find the perfect pet.
+- As a user I want a nice UI so that I like to visit the site.
+  - As a designer I need a page to display a list of all the pets so that I can choose one.
+  - As a designer I need a page to display an individual pet's status' and actions.
+  - As a designer I need a page to display a list of shelters.
+  - 
+- As a programmer I need to incorporate Spring into the program to make nice endpoints.
+- As a user I need to be able to remove a pet from the shelter.
+
+
+
+# Requirements for a shelter
+
+- 
+
+# Requirements for a pet
+
+- Need a parent class- Named Pet
+  - ID
+  - Name
+  - getters and setters
+  - constructor
+  
+# Entities
+
+- Shelter
+  - display pets
+  - diplay pet status
+  - get pet
+  - admit
+  - adopt
+  
+
+- Organic Dog
+  - feed
+- Organic Cat
+  - feed
+- Robotic Dog
+  - oil
+- Robotic Cat
+  - oil
+
+# Repositories
+
+- CRUD repo for each entity
+
+# Controllers
+
+- Controller for each endpoint
+  
+
+# Pet parent class
+
 ## Required Tasks
 # Backend
 - Choose which student’s virtual pet will be used for this project.
