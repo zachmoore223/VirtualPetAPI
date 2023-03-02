@@ -8,8 +8,8 @@ class OrganicDogTest {
 
     @Test
     public void addOrganicDogReturnsId() {
-        OrganicDog organicDog = new OrganicDog(1L);
-        assertEquals(1, organicDog.getd());
+        OrganicDog organicDog = new OrganicDog(1);
+        assertEquals(1, organicDog.getId());
     }
 
 }
