@@ -4,6 +4,7 @@ public class OrganicDog {
 
     private long id;
     private String name;
+    private int hunger;
 
     public OrganicDog(long id, String name) {
         this.id = id;
@@ -22,5 +23,13 @@ public class OrganicDog {
     }
 
     public void setName() {
+    }
+
+    public int getHunger() {
+        return hunger;
+    }
+
+    public void setHunger(int hunger) {
+        this.hunger = hunger;
     }
 }

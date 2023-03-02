@@ -19,7 +19,7 @@ class OrganicDogTest {
     }
 
     @Test
-    public void testSetandGetHunger() {
+    public void testSetAndGetHunger() {
         OrganicDog organicDog = new OrganicDog(1, "Fido");
         organicDog.setHunger(1);
         assertEquals(1, organicDog.getHunger());
