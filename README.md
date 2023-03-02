@@ -1,6 +1,16 @@
 ## Virtual Pet API
 Now we will take Virtual pet to its logical conclusion! A fully functional MVC application! Your team will choose one of your virtual pet applications and transform it into a backend application with a functional front end! This will test everything you’ve learned up until this point, and will also be your first group project.
 
+#MAPPINGS
+- GET /shelters  - List all shelter (edited)
+- POST /shelters - Create a new shelter
+- POST /shelters/{shelterID} - Add a given pet according to type, age,etc (edited)
+- GET /shelter/{shelterID} - Get all pets in a shelter
+- POST /shelter/{shelterID} - Add a pet to a given shelter
+- DELETE /shelter/{shelterID}/{petID} - Adopt a given pet
+- PUT/shelter/{shelterID}/{petID} - (PUT) Perform actions upon or see the status (GET) of a single pet who is a guest of a particular shelter
+- PUT /shelter/{shelterID} -Perform actions upon or see the status of all pets who are guests of a particular shelter
+
 ## Required Tasks
 # Backend
 - Choose which student’s virtual pet will be used for this project.
