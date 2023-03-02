@@ -24,4 +24,12 @@ class OrganicDogTest {
         organicDog.setHunger(1);
         assertEquals(1, organicDog.getHunger());
     }
+
+    @Test
+    public void testFeedSetsHungerToZero() {
+        OrganicDog organicDog = new OrganicDog(1, "Fido");
+        organicDog.setHunger(10);
+        organicDog.feed();
+        assertEquals(0,organicDog.getHunger());
+    }
 }
