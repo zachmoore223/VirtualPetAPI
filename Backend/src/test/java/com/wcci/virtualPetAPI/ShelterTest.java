@@ -13,4 +13,12 @@ class ShelterTest {
         
     }
 
+    @Test
+    public void addPetToShelter() {
+        OrganicDog tester = new OrganicDog(1, "tester");
+        Shelter shelter = new Shelter(1, "Shelter 1");
+        shelter.addPet(tester);
+        assertEquals(tester, shelter.getPet(1));
+    }
+
 }
