@@ -1,6 +1,6 @@
 package com.wcci.virtualPetAPI;
 
-public class NamedPet {
+abstract public class NamedPet{
     final private long petID;
     final private String petName;
 
@@ -9,7 +9,7 @@ public class NamedPet {
         this.petName = petName;
     }
 
-    public long getPetID() {
+    public long getId() {
         return petID;
     }
 
