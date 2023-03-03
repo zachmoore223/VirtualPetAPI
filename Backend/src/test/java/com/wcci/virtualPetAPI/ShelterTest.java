@@ -30,4 +30,23 @@ class ShelterTest {
         assertNotEquals(tester, shelter.getPet(1));
     }
 
+    @Test
+    public void testReturnAllPetsFromAShelterWithOnePet() {
+        OrganicDog tester1 = new OrganicDog(1, "tester");
+        Shelter shelter = new Shelter(1, "Shelter 1");
+        shelter.addPet(tester1);
+        assertEquals(1,shelter.getAllPets().size());
+
+    }
+    @Test
+    public void testReturnAllPetsFromAShelterWithTwoPet() {
+        OrganicDog tester1 = new OrganicDog(1, "tester1");
+        RoboticDog tester2 = new RoboticDog(2, "tester2");
+        Shelter shelter = new Shelter(1, "Shelter 1");
+        shelter.addPet(tester1);
+        shelter.addPet(tester2);
+        assertEquals(2,shelter.getAllPets().size());
+
+    }
+
 }
