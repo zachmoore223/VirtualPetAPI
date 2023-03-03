@@ -8,9 +8,9 @@ class ShelterTest {
 
     @Test
     public void testGetShelter() {
-        Shelter shelter = new Shelter (1, "Shelter 1");
+        Shelter shelter = new Shelter(1, "Shelter 1");
         assertEquals("Shelter 1", shelter.getName());
-        
+
     }
 
     @Test
@@ -19,6 +19,15 @@ class ShelterTest {
         Shelter shelter = new Shelter(1, "Shelter 1");
         shelter.addPet(tester);
         assertEquals(tester, shelter.getPet(1));
+    }
+
+    @Test
+    public void removePetFromShelter() {
+        OrganicDog tester = new OrganicDog(1, "tester");
+        Shelter shelter = new Shelter(1, "Shelter 1");
+        shelter.addPet(tester);
+        shelter.removePet(tester);
+        assertNotEquals(tester, shelter.getPet(1));
     }
 
 }
