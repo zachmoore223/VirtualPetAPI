@@ -1,5 +1,6 @@
 package com.wcci.virtualPetAPI;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,5 +37,9 @@ public class Shelter {
 
     public void removePet(NamedPet namedPet) {
         pets.remove(namedPet.getId());
+    }
+
+    public Collection<NamedPet>  getAllPets() {
+        return pets.values();
     }
 }
