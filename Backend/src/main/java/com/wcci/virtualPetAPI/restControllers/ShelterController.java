@@ -40,5 +40,11 @@ public class ShelterController {
         shelterRepository.save(shelter);
     }
 
+    //curl -X DELETE http://localhost:8080/api/shelter/1 -H 'Content-Type: application/json'
+    @DeleteMapping("/api/shelter/{shelter_id}")
+    public void deleteShelter(@PathVariable final long shelter_id) {
+        shelterRepository.delete(shelterRepository.findById(shelter_id).get());
+    }
+
 
 }

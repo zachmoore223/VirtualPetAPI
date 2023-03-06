@@ -13,10 +13,9 @@ everything you’ve learned up until this point, and will also be your first gro
 * POST A SHELTER:
     * curl -X POST http://localhost:8080/api/shelter -H 'Content-Type: application/json' -d '{"name": "test"}'
 * PUT A SHELTER:
-    * curl -X PUT http://localhost:8080/api/shelter/1 -H 'Content-Type: application/json' -d '{"id":1, "name": "
-      nameChange"}'
-
--
+    * curl -X PUT http://localhost:8080/api/shelter/1 -H 'Content-Type: application/json' -d '{"id":1, "name": "test"}'
+* DELETE A SHELTER:
+    * curl -X DELETE http://localhost:8080/api/shelter/1 -H 'Content-Type: application/json'
 
 # Mappings
 
