@@ -25,4 +25,10 @@ public class ShelterController {
         return shelterRepository.findById(shelter_id).get();
     }
 
+    /* curl -X POST http://localhost:8080/api/shelter -H 'Content-Type: application/json' -d '{"name": "test"}' */
+    @PostMapping("/api/shelter")
+    public Shelter addShelter(@RequestBody Shelter shelter) {
+        return shelterRepository.save(shelter);
+    }
+
 }

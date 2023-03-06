@@ -10,9 +10,12 @@ public class Shelter {
     @Id
     @GeneratedValue()
     private long id;
-    final private String name;
+    private String name;
     @OneToMany()
     private Map<Long, NamedPet> pets = new HashMap<>();
+
+    protected Shelter() {
+    }
 
     public Shelter(String name) {
         this.name = name;
@@ -49,5 +52,9 @@ public class Shelter {
 
     public void setId() {
         this.id = id;
+    }
+
+    public long getId() {
+        return id;
     }
 }
