@@ -1,23 +1,27 @@
-package com.wcci.virtualPetAPI;
+package com.wcci.virtualPetAPI.entities;
 
+import javax.persistence.*;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+@Entity()
 public class Shelter {
-
-    final private long id;
+    @Id
+    @GeneratedValue()
+    private long id;
     final private String name;
+    @OneToMany()
     private Map<Long, NamedPet> pets = new HashMap<>();
 
-    public Shelter(long id, String name) {
-        this.id = id;
+    public Shelter(String name) {
         this.name = name;
     }
 
     public String getName() {
         return name;
     }
+
 
     public Map<Long, NamedPet> getPets() {
         return pets;
@@ -39,7 +43,11 @@ public class Shelter {
         pets.remove(namedPet.getId());
     }
 
-    public Collection<NamedPet>  getAllPets() {
+    public Collection<NamedPet> getAllPets() {
         return pets.values();
+    }
+
+    public void setId() {
+        this.id = id;
     }
 }

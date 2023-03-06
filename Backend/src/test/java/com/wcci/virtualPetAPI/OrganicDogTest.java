@@ -1,5 +1,6 @@
 package com.wcci.virtualPetAPI;
 
+import com.wcci.virtualPetAPI.entities.OrganicDog;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -30,6 +31,6 @@ class OrganicDogTest {
         OrganicDog organicDog = new OrganicDog(1, "Fido");
         organicDog.setHunger(10);
         organicDog.feed();
-        assertEquals(0,organicDog.getHunger());
+        assertEquals(0, organicDog.getHunger());
     }
 }
