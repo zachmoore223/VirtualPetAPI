@@ -25,7 +25,10 @@ Now we will take Virtual pet to its logical conclusion! A fully functional MVC a
 - As a programmer I need to incorporate Spring into the program to make nice endpoints.
 - As a user I need to be able to remove a pet from the shelter.
 
+# HTML pages needed
 
+- /shelter.html
+- /shelter/{shelterId}.html
 
 # Requirements for a shelter
 
