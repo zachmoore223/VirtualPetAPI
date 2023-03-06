@@ -31,4 +31,14 @@ public class ShelterController {
         return shelterRepository.save(shelter);
     }
 
+    /* curl -X PUT http://localhost:8080/api/shelter/1 -H 'Content-Type: application/json' -d '{"id":1, "name": "test"}' */
+    @PutMapping("/api/shelter/{shelter_id}")
+    public void putShelter(@PathVariable final long shelter_id, @RequestBody Shelter shelter) throws Exception {
+        if (shelter.getId() != shelter_id) {
+            throw new Exception("Shelter body has id " + shelter.getId() + " but url had id " + shelter_id);
+        }
+        shelterRepository.save(shelter);
+    }
+
+
 }
