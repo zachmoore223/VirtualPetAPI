@@ -78,8 +78,9 @@ class ShelterControllerTest {
     //test adding 1 organic dog
     @Test
     public void addOneOrgDog() throws Exception {
+        final Shelter shelter = new Shelter("Columbus");
         final NamedPet testPet = new OrganicDog(1, "Fido");
-        mvc.perform(MockMvcRequestBuilders.post("/api/shelter/pet")
+        mvc.perform(MockMvcRequestBuilders.post("/api/shelters/1/pets")
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(getJsonContent(testPet)))

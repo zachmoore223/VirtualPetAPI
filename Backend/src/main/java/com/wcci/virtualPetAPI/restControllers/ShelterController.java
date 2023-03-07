@@ -38,9 +38,11 @@ public class ShelterController {
     }
 
 
-    @PostMapping("/api/shelter/pet")
-    public NamedPet addPet(final @RequestBody NamedPet namedPet) {
-        return namedPetRepository.save(namedPet);
+    @PostMapping("/api/shelters/{shelter_id}/pets")
+    public NamedPet addPet(@PathVariable final long shelter_id, @RequestBody NamedPet namedPet) {
+        namedPetRepository.save(namedPet);
+        shelterRepository.findById(shelter_id).get().addPet(namedPet);
+        return namedPet;
     }
 
     /* curl -X PUT http://localhost:8080/api/shelter/1 -H 'Content-Type: application/json' -d '{"id":1, "name": "test"}' */

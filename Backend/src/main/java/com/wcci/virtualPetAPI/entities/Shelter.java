@@ -36,6 +36,7 @@ public class Shelter {
         pets.remove(namedPet);
     }
 
+
     public Collection<NamedPet> getAllPets() {
         return pets;
     }
@@ -47,5 +48,4 @@ public class Shelter {
     public long getId() {
         return id;
     }
-
 }

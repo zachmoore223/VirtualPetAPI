@@ -2,13 +2,11 @@ package com.wcci.virtualPetAPI.entities;
 
 import com.wcci.virtualPetAPI.entities.Shelter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.MappedSuperclass;
+import javax.persistence.*;
 
 
-@MappedSuperclass
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 abstract public class NamedPet {
     @Id
     private long petID;

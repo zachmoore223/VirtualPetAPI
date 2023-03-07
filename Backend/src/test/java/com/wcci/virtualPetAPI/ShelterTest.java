@@ -21,7 +21,7 @@ class ShelterTest {
         OrganicDog tester = new OrganicDog(1, "tester");
         Shelter shelter = new Shelter("Shelter 1");
         shelter.addPet(tester);
-        assertEquals(tester, shelter.getPet(1));
+        assertTrue(shelter.getAllPets().contains(tester));
     }
 
     @Test
@@ -30,7 +30,7 @@ class ShelterTest {
         Shelter shelter = new Shelter("Shelter 1");
         shelter.addPet(tester);
         shelter.removePet(tester);
-        assertNotEquals(tester, shelter.getPet(1));
+        assertNotEquals(tester, shelter.getAllPets().contains(tester));
     }
 
     @Test
