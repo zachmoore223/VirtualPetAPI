@@ -6,50 +6,53 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virtual Pet!</title>
+    <link rel="stylesheet" href="/shelter.css">
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,300&display=swap" rel="stylesheet">
 </head>
 
 <body>
-    <h1>Welcome to pet shelter: <span th:text="${shelter}"></span></h1>
-        <div th:switch="${pets}">
-            <h2 th:case="null">No pets yet!</h2>
-            <div th:case="*">
-                <table border="1">
-                    <thead>
-                        <tr>
-                            <th>Id</th>
-                            <th>Name</th>
-                            <th>Hunger Level</th>
-                            <th>Oil Level</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr th:each="pet : ${pets}">
-                            <td th:text="${pet.id}"></td>
-                            <td th:text="${pet.name}"></td>
-                            <td th:text="${pet.hunger}"></td>
-                            <td th:text="${pet.oil}"></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    <div>
-        <form style="border-style: solid; width: 200px;" action="#"
-                th:action="@{/shelter}" th:object="${shelter}" method="post">
-                        <label for="pname">Pet name:</label>
-            <input type="text" id="pname" name="pname"><br>
-            <p>Pet Class</p>
-                 <input type="radio" id="dog" name="pet_class" value="dog">
-                 <label for="dog">Dog</label><br>
-                 <input type="radio" id="cat" name="pet_class" value="cat">
-                 <label for="cat">Cat</label>
-            <p>Pet Type</p>
-                 <input type="radio" id="organic" name="pet_type" value="organic">
-                 <label for="organic">Organic</label><br>
-                 <input type="radio" id="robotic" name="pet_type" value="robotic">
-                 <label for="robotic">Robotic</label><br>
-        </form>
+<h1>Welcome to our pet shelter!! <span th:text="${shelter}"></span></h1>
+<div th:switch="${pets}">
+    <h2 th:case="null">No pets yet. Come back soon!!</h2>
+    <div th:case="*">
+        <table border="1">
+            <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Hunger Level</th>
+                <th>Oil Level</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:each="pet : ${pets}">
+                <td th:text="${pet.id}"></td>
+                <td th:text="${pet.name}"></td>
+                <td th:text="${pet.hunger}"></td>
+                <td th:text="${pet.oil}"></td>
+            </tr>
+            </tbody>
+        </table>
     </div>
+</div>
+<div>
+    <form style="border-style: solid; width: 200px;" action="#"
+          th:action="@{/shelter}" th:object="${shelter}" method="post">
+        <label for="pname">Pet name:</label>
+        <input type="text" id="pname" name="pname"><br>
+        <p>Pet Class</p>
+        <input type="radio" id="dog" name="pet_class" value="dog">
+        <label for="dog">Dog</label><br>
+        <input type="radio" id="cat" name="pet_class" value="cat">
+        <label for="cat">Cat</label>
+        <p>Pet Type</p>
+        <input type="radio" id="organic" name="pet_type" value="organic">
+        <label for="organic">Organic</label><br>
+        <input type="radio" id="robotic" name="pet_type" value="robotic">
+        <label for="robotic">Robotic</label><br>
+    </form>
+</div>
 
 </body>
 </html>
