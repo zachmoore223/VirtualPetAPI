@@ -39,9 +39,38 @@ class ShelterControllerTest {
     public void addShelter() throws Exception {
         final Shelter tester = new Shelter("Test Shelter");
         mvc.perform(MockMvcRequestBuilders.post("/api/shelter")
-                        .accept(MediaType.APPLICATION_JSON) // I'm expecting JSON back because I'm a program and want recordized date
-                        .contentType(MediaType.APPLICATION_JSON) // I'm a program and sending you JSON-encoded data
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
                         .content(getJsonContent(tester)))
+                .andExpect(status().isOk());
+    }
+
+    //test adding 2 shelters
+    @Test
+    public void addShelters() throws Exception {
+        final Shelter tester1 = new Shelter("Test Shelter 1");
+        final Shelter tester2 = new Shelter("Test Shelter 2");
+
+        // POST to /api/shelter & check content (Test Shelter 1)
+        mvc.perform(MockMvcRequestBuilders.post("/api/shelter")
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(getJsonContent(tester1)))
+                .andExpect(status().isOk());
+
+        // POST to /api/shelter & check content (Test Shelter 2)
+        mvc.perform(MockMvcRequestBuilders.post("/api/shelter")
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(getJsonContent(tester2)))
+                .andExpect(status().isOk());
+
+        //DELETE 1st shelter
+        mvc.perform(MockMvcRequestBuilders.delete("/api/shelter/1").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+
+        //Check shelter 2 is still there
+        mvc.perform(MockMvcRequestBuilders.get("/api/shelter/2").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 
