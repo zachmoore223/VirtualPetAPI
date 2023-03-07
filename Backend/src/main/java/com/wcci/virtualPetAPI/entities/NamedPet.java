@@ -1,10 +1,11 @@
 package com.wcci.virtualPetAPI.entities;
 
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.wcci.virtualPetAPI.entities.Shelter;
 
 import javax.persistence.*;
 
-
+@JsonDeserialize(as = OrganicDog.class)
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 abstract public class NamedPet {

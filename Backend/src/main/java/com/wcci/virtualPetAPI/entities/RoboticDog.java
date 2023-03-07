@@ -1,5 +1,8 @@
 package com.wcci.virtualPetAPI.entities;
 
+import javax.persistence.Entity;
+
+@Entity
 public class RoboticDog extends NamedPet {
 
     private int oil;

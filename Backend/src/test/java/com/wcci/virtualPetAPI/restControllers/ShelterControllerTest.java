@@ -14,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -79,12 +80,19 @@ class ShelterControllerTest {
     @Test
     public void addOneOrgDog() throws Exception {
         final Shelter shelter = new Shelter("Columbus");
+        mvc.perform(MockMvcRequestBuilders.post("/api/shelter")
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(getJsonContent(shelter)))
+                .andExpect(status().isOk());
+
         final NamedPet testPet = new OrganicDog(1, "Fido");
-        mvc.perform(MockMvcRequestBuilders.post("/api/shelters/1/pets")
+        mvc.perform(MockMvcRequestBuilders.post("/api/shelters/pets")
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(getJsonContent(testPet)))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().json(getJsonContent(testPet)));
     }
 
     private static String getJsonContent(Object o) throws JsonProcessingException {
