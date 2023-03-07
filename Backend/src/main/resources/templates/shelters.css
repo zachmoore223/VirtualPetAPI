@@ -1,0 +1,42 @@
+body{
+    background-image: url("\Interactive-Ball-Petstest.jpg");
+}
+
+h1{
+    font-family: 'Oswald', sans-serif;
+    color: darkblue;
+    text-decoration: underline;
+    text-align: center;
+}
+
+h2{
+    color: darkblue;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+}
+
+h3{
+    color: darkblue;
+    text-decoration: underline;
+    font-family: 'Oswald', sans-serif;
+    text-align: center;
+}
+
+ul{
+    background-color: rgb(1, 148, 116);
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    border-color:antiquewhite;
+    margin-right: auto;
+    width: 325px;
+    margin-bottom: -35px;
+}
+
+form{
+    background-color: rgb(1, 148, 116);
+    color: white;
+    font-family: 'Ubuntu', sans-serif;
+    border-color:antiquewhite;
+    margin-left: auto;
+    text-align: center;
+}
