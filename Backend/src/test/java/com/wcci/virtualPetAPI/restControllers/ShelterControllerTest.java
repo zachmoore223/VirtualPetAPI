@@ -14,6 +14,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.hamcrest.Matchers.equalTo;
@@ -80,13 +81,27 @@ class ShelterControllerTest {
     @Test
     public void addOneOrgDog() throws Exception {
         final Shelter shelter = new Shelter("Columbus");
+        shelter.setId(1);
         mvc.perform(MockMvcRequestBuilders.post("/api/shelter")
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(getJsonContent(shelter)))
-                .andExpect(status().isOk());
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().json(getJsonContent(shelter)))
+                .andDo(MockMvcResultHandlers.print());
 
-        final NamedPet testPet = new OrganicDog("Fido");
+
+        final OrganicDog testPet = new OrganicDog("Fido");
+        testPet.setId(2);
+        String jsonContent = getJsonContent(testPet);
+        mvc.perform(MockMvcRequestBuilders.post("/api/organicDogs")
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonContent))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().json(getJsonContent(testPet)))
+                .andDo(MockMvcResultHandlers.print());
+
         mvc.perform(MockMvcRequestBuilders.post("/api/shelters/pets")
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON)

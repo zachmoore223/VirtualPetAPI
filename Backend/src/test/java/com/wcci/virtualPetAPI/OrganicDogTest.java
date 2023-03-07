@@ -16,7 +16,7 @@ class OrganicDogTest {
     @Test
     public void testConstructAndReturnName() {
         OrganicDog organicDog = new OrganicDog("Fido");
-        assertEquals("Fido", organicDog.getName());
+        assertEquals("Fido", organicDog.getPetName());
     }
 
     @Test

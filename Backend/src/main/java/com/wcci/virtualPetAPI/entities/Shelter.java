@@ -41,7 +41,7 @@ public class Shelter {
         return pets;
     }
 
-    public void setId() {
+    public void setId(final long id) {
         this.id = id;
     }
 

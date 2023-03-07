@@ -16,7 +16,7 @@ class RoboticDogTest {
     @Test
     public void testConstructAndReturnName() {
         RoboticDog roboticDog = new RoboticDog("Fido");
-        assertEquals("Fido", roboticDog.getName());
+        assertEquals("Fido", roboticDog.getPetName());
     }
 
     @Test

@@ -5,6 +5,7 @@ import com.wcci.virtualPetAPI.entities.NamedPet;
 import com.wcci.virtualPetAPI.entities.OrganicDog;
 import com.wcci.virtualPetAPI.entities.Shelter;
 import com.wcci.virtualPetAPI.repositories.NamedPetRepository;
+import com.wcci.virtualPetAPI.repositories.OrganicDogRepository;
 import com.wcci.virtualPetAPI.repositories.ShelterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -13,10 +14,14 @@ import org.springframework.web.bind.annotation.*;
 public class ShelterController {
     final ShelterRepository shelterRepository;
     final NamedPetRepository namedPetRepository;
+    final OrganicDogRepository organicDogRepository;
 
-    public ShelterController(@Autowired ShelterRepository shelterRepository, NamedPetRepository namedPetRepository) {
+    public ShelterController(@Autowired ShelterRepository shelterRepository,
+                             @Autowired NamedPetRepository namedPetRepository,
+                             @Autowired OrganicDogRepository organicDogRepository) {
         this.shelterRepository = shelterRepository;
         this.namedPetRepository = namedPetRepository;
+        this.organicDogRepository = organicDogRepository;
     }
 
     //curl -X GET http://localhost:8080/shelter -H 'Content-Type: application/json'
@@ -42,6 +47,11 @@ public class ShelterController {
     @PostMapping("/api/pets")
     public NamedPet addPet(@RequestBody NamedPet namedPet) {
         return namedPetRepository.save(namedPet);
+    }
+
+    @PostMapping("/api/organicDogs")
+    public NamedPet addPet(@RequestBody OrganicDog organicDog) {
+        return organicDogRepository.save(organicDog);
     }
 
     /* curl -X PUT http://localhost:8080/api/shelter/1 -H 'Content-Type: application/json' -d '{"id":1, "name": "test"}' */

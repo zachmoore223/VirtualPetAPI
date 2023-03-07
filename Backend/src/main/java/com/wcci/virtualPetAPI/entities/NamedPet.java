@@ -5,7 +5,7 @@ import com.wcci.virtualPetAPI.entities.Shelter;
 
 import javax.persistence.*;
 
-@JsonDeserialize(as = OrganicDog.class)
+// @JsonDeserialize(as = OrganicDog.class)
 @Entity
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 abstract public class NamedPet {
@@ -31,7 +31,7 @@ abstract public class NamedPet {
         this.id= id;
     }
 
-    public String getName() {
+    public String getPetName() {
         return petName;
     }
 }
