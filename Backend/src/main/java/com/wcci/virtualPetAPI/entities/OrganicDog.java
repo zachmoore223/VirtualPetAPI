@@ -6,10 +6,10 @@ import java.util.Objects;
 @Entity
 public class OrganicDog extends NamedPet {
 
-    private int hunger =12;
+    private int hunger;
 
-    public OrganicDog(long id, String name) {
-        super(id, name);
+    public OrganicDog(String name) {
+        super(name);
     }
 
     public OrganicDog() {
@@ -25,6 +25,6 @@ public class OrganicDog extends NamedPet {
     }
 
     public void feed() {
-        this.hunger = 10;
+        this.hunger = 0;
     }
 }

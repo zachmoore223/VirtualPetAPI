@@ -39,7 +39,7 @@ public class ShelterController {
 
 
     /* curl -X POST http://localhost:8080/api/shelters/1/pets -H 'Content-Type: application/json' -d '{"id": "1", "name": "Dog"}' */
-    @PostMapping("/api/shelters/pets")
+    @PostMapping("/api/pets")
     public NamedPet addPet(@RequestBody NamedPet namedPet) {
         return namedPetRepository.save(namedPet);
     }

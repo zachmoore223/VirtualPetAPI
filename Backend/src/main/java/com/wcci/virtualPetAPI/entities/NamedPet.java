@@ -10,13 +10,13 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 abstract public class NamedPet {
     @Id
-    private long petID;
+    @GeneratedValue()
+    private long id;
     private String petName;
     @ManyToOne()
     private Shelter shelter;
 
-    public NamedPet(long petID, String petName) {
-        this.petID = petID;
+    public NamedPet(String petName) {
         this.petName = petName;
     }
 
@@ -24,7 +24,11 @@ abstract public class NamedPet {
     }
 
     public long getId() {
-        return petID;
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id= id;
     }
 
     public String getName() {

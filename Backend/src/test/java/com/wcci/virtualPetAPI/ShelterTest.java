@@ -18,7 +18,7 @@ class ShelterTest {
 
     @Test
     public void addPetToShelter() {
-        OrganicDog tester = new OrganicDog(1, "tester");
+        OrganicDog tester = new OrganicDog("tester");
         Shelter shelter = new Shelter("Shelter 1");
         shelter.addPet(tester);
         assertTrue(shelter.getAllPets().contains(tester));
@@ -26,7 +26,7 @@ class ShelterTest {
 
     @Test
     public void removePetFromShelter() {
-        OrganicDog tester = new OrganicDog(1, "tester");
+        OrganicDog tester = new OrganicDog("tester");
         Shelter shelter = new Shelter("Shelter 1");
         shelter.addPet(tester);
         shelter.removePet(tester);
@@ -35,7 +35,7 @@ class ShelterTest {
 
     @Test
     public void testReturnAllPetsFromAShelterWithOnePet() {
-        OrganicDog tester1 = new OrganicDog(1, "tester");
+        OrganicDog tester1 = new OrganicDog("tester");
         Shelter shelter = new Shelter("Shelter 1");
         shelter.addPet(tester1);
         assertEquals(1, shelter.getAllPets().size());
@@ -44,8 +44,8 @@ class ShelterTest {
 
     @Test
     public void testReturnAllPetsFromAShelterWithTwoPet() {
-        OrganicDog tester1 = new OrganicDog(1, "tester1");
-        RoboticDog tester2 = new RoboticDog(2, "tester2");
+        OrganicDog tester1 = new OrganicDog("tester1");
+        RoboticDog tester2 = new RoboticDog("tester2");
         Shelter shelter = new Shelter("Shelter 1");
         shelter.addPet(tester1);
         shelter.addPet(tester2);

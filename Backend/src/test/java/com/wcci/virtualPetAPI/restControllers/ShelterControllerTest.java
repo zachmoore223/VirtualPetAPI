@@ -86,7 +86,7 @@ class ShelterControllerTest {
                         .content(getJsonContent(shelter)))
                 .andExpect(status().isOk());
 
-        final NamedPet testPet = new OrganicDog(1, "Fido");
+        final NamedPet testPet = new OrganicDog("Fido");
         mvc.perform(MockMvcRequestBuilders.post("/api/shelters/pets")
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON)
