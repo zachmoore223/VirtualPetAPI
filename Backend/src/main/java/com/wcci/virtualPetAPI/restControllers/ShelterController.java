@@ -1,6 +1,10 @@
 package com.wcci.virtualPetAPI.restControllers;
 
+import com.fasterxml.jackson.databind.util.Named;
+import com.wcci.virtualPetAPI.entities.NamedPet;
+import com.wcci.virtualPetAPI.entities.OrganicDog;
 import com.wcci.virtualPetAPI.entities.Shelter;
+import com.wcci.virtualPetAPI.repositories.NamedPetRepository;
 import com.wcci.virtualPetAPI.repositories.ShelterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -8,9 +12,11 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 public class ShelterController {
     final ShelterRepository shelterRepository;
+    final NamedPetRepository namedPetRepository;
 
-    public ShelterController(@Autowired ShelterRepository shelterRepository) {
+    public ShelterController(@Autowired ShelterRepository shelterRepository, NamedPetRepository namedPetRepository) {
         this.shelterRepository = shelterRepository;
+        this.namedPetRepository = namedPetRepository;
     }
 
     //curl -X GET http://localhost:8080/shelter -H 'Content-Type: application/json'
@@ -29,6 +35,12 @@ public class ShelterController {
     @PostMapping("/api/shelter")
     public Shelter addShelter(@RequestBody Shelter shelter) {
         return shelterRepository.save(shelter);
+    }
+
+
+    @PostMapping("/api/shelter/pet")
+    public NamedPet addPet(final @RequestBody NamedPet namedPet) {
+        return namedPetRepository.save(namedPet);
     }
 
     /* curl -X PUT http://localhost:8080/api/shelter/1 -H 'Content-Type: application/json' -d '{"id":1, "name": "test"}' */

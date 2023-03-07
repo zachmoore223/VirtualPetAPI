@@ -2,6 +2,8 @@ package com.wcci.virtualPetAPI.restControllers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.wcci.virtualPetAPI.entities.NamedPet;
+import com.wcci.virtualPetAPI.entities.OrganicDog;
 import com.wcci.virtualPetAPI.entities.Shelter;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +14,6 @@ import org.springframework.http.MediaType;
 import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 import static org.hamcrest.Matchers.equalTo;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
@@ -74,8 +75,18 @@ class ShelterControllerTest {
                 .andExpect(status().isOk());
     }
 
+    //test adding 1 organic dog
+    @Test
+    public void addOneOrgDog() throws Exception {
+        final NamedPet testPet = new OrganicDog(1, "Fido");
+        mvc.perform(MockMvcRequestBuilders.post("/api/shelter/pet")
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(getJsonContent(testPet)))
+                .andExpect(status().isOk());
+    }
+
     private static String getJsonContent(Object o) throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(o);
     }
-
 }
