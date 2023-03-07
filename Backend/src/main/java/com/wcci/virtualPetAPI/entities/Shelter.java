@@ -57,4 +57,5 @@ public class Shelter {
     public long getId() {
         return id;
     }
+
 }
