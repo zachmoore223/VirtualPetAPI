@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 abstract public class NamedPet {
     @Id
-    @GeneratedValue()
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     private String name;
     @ManyToOne()
