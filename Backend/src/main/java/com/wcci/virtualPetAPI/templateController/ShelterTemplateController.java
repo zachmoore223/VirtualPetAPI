@@ -1,11 +1,13 @@
 package com.wcci.virtualPetAPI.templateController;
 
+import com.wcci.virtualPetAPI.entities.Shelter;
 import com.wcci.virtualPetAPI.repositories.ShelterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
 @Controller
 public class ShelterTemplateController {
@@ -26,6 +28,12 @@ public class ShelterTemplateController {
         model.addAttribute("shelter", shelterRepository.findById(shelter_id).get());
         model.addAttribute("pets", shelterRepository.findById(shelter_id).get().getAllPets());
         return "shelter.html";
+    }
+
+    @PostMapping("/shelters")
+    public String postShelters(final Shelter shelter) {
+        shelterRepository.save(shelter);
+        return "redirect:/shelters";
     }
 
 }
