@@ -11,13 +11,13 @@ abstract public class NamedPet {
     @Id
     @GeneratedValue()
     private long id;
-    private String petName;
+    private String name;
     @ManyToOne()
     @JsonIgnore
     private Shelter shelter;
 
-    public NamedPet(String petName) {
-        this.petName = petName;
+    public NamedPet(String name) {
+        this.name = name;
     }
 
     public NamedPet() {
@@ -31,8 +31,8 @@ abstract public class NamedPet {
         this.id = id;
     }
 
-    public String getPetName() {
-        return petName;
+    public String getName() {
+        return name;
     }
 
     public void setShelter(Shelter shelter) {

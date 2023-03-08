@@ -23,7 +23,7 @@ public class ShelterTemplateController {
 
     @GetMapping("/shelters/{shelter_id}")
     public String getShelter(Model model, @PathVariable long shelter_id) {
-        model.addAttribute("shelter", shelterRepository.findById(shelter_id).get().getId());
+        model.addAttribute("shelter", shelterRepository.findById(shelter_id).get());
         model.addAttribute("pets", shelterRepository.findById(shelter_id).get().getAllPets());
         return "shelter.html";
     }
