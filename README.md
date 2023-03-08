@@ -7,15 +7,24 @@ everything you’ve learned up until this point, and will also be your first gro
 # Curl Commands
 
 * GET ALL SHELTERS:
-    * curl -X GET http://localhost:8080/shelter -H 'Content-Type: application/json'
+    * curl -X GET http://localhost:8080/shelters -H 'Content-Type: application/json'
 * GET A SHELTER:
-    * curl -X GET http://localhost:8080/shelter/1 -H 'Content-Type: application/json'
+    * curl -X GET http://localhost:8080/shelters/1 -H 'Content-Type: application/json'
 * POST A SHELTER:
-    * curl -X POST http://localhost:8080/api/shelter -H 'Content-Type: application/json' -d '{"name": "test"}'
+    * curl -X POST http://localhost:8080/api/shelters -H 'Content-Type: application/json' -d '{"name": "test"}'
 * PUT A SHELTER:
-    * curl -X PUT http://localhost:8080/api/shelter/1 -H 'Content-Type: application/json' -d '{"id":1, "name": "test"}'
+    * curl -X PUT http://localhost:8080/api/shelters/1 -H 'Content-Type: application/json' -d '{"id":1, "name": "test"}'
 * DELETE A SHELTER:
-    * curl -X DELETE http://localhost:8080/api/shelter/1 -H 'Content-Type: application/json'
+    * curl -X DELETE http://localhost:8080/api/shelters/1 -H 'Content-Type: application/json'
+
+## OrganicDog Commands
+
+* GET ALL ORGANIC DOGS:
+    * curl -X GET http://localhost:8080/api/shelters/1/organicDogs -H 'Content-Type: application/json'
+
+* POST AN ORGANIC DOG:
+    * curl -s -X POST http://localhost:8080/api/shelters/1/organicDogs -H 'Content-Type: application/json' -d '{"
+      petName": "testDog"}'
 
 # Mappings
 
