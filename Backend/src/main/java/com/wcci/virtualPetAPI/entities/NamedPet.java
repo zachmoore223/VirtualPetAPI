@@ -1,8 +1,5 @@
 package com.wcci.virtualPetAPI.entities;
 
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
-import com.wcci.virtualPetAPI.entities.Shelter;
-
 import javax.persistence.*;
 
 // @JsonDeserialize(as = OrganicDog.class)
@@ -33,5 +30,12 @@ abstract public class NamedPet {
 
     public String getPetName() {
         return petName;
+    }
+
+    public void setShelter(Shelter shelter) {
+        this.shelter = shelter;
+    }
+    public Shelter getShelter() {
+        return shelter;
     }
 }

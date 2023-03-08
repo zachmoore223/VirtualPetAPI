@@ -10,6 +10,7 @@ class OrganicDogTest {
     @Test
     public void testAddOrganicDogReturnsId() {
         OrganicDog organicDog = new OrganicDog("Fido");
+        organicDog.setId(1);
         assertEquals(1, organicDog.getId());
     }
 

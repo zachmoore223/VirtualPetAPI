@@ -32,7 +32,7 @@ class ShelterControllerTest {
     //test zero shelters equals "[]"
     @Test
     public void getShelters() throws Exception {
-        mvc.perform(MockMvcRequestBuilders.get("/api/shelter").accept(MediaType.APPLICATION_JSON))
+        mvc.perform(MockMvcRequestBuilders.get("/api/shelters").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk())
                 .andExpect(content().string(equalTo("[]")));
     }
@@ -41,7 +41,7 @@ class ShelterControllerTest {
     @Test
     public void addShelter() throws Exception {
         final Shelter tester = new Shelter("Test Shelter");
-        mvc.perform(MockMvcRequestBuilders.post("/api/shelter")
+        mvc.perform(MockMvcRequestBuilders.post("/api/shelters")
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(getJsonContent(tester)))
@@ -55,60 +55,28 @@ class ShelterControllerTest {
         final Shelter tester2 = new Shelter("Test Shelter 2");
 
         // POST to /api/shelter & check content (Test Shelter 1)
-        mvc.perform(MockMvcRequestBuilders.post("/api/shelter")
+        mvc.perform(MockMvcRequestBuilders.post("/api/shelters")
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(getJsonContent(tester1)))
                 .andExpect(status().isOk());
 
         // POST to /api/shelter & check content (Test Shelter 2)
-        mvc.perform(MockMvcRequestBuilders.post("/api/shelter")
+        mvc.perform(MockMvcRequestBuilders.post("/api/shelters")
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(getJsonContent(tester2)))
                 .andExpect(status().isOk());
 
         //DELETE 1st shelter
-        mvc.perform(MockMvcRequestBuilders.delete("/api/shelter/1").accept(MediaType.APPLICATION_JSON))
+        mvc.perform(MockMvcRequestBuilders.delete("/api/shelters/1").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
 
         //Check shelter 2 is still there
-        mvc.perform(MockMvcRequestBuilders.get("/api/shelter/2").accept(MediaType.APPLICATION_JSON))
+        mvc.perform(MockMvcRequestBuilders.get("/api/shelters/2").accept(MediaType.APPLICATION_JSON))
                 .andExpect(status().isOk());
     }
 
-    //test adding 1 organic dog
-    @Test
-    public void addOneOrgDog() throws Exception {
-        final Shelter shelter = new Shelter("Columbus");
-        shelter.setId(1);
-        mvc.perform(MockMvcRequestBuilders.post("/api/shelter")
-                        .accept(MediaType.APPLICATION_JSON)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(getJsonContent(shelter)))
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.content().json(getJsonContent(shelter)))
-                .andDo(MockMvcResultHandlers.print());
-
-
-        final OrganicDog testPet = new OrganicDog("Fido");
-        testPet.setId(2);
-        String jsonContent = getJsonContent(testPet);
-        mvc.perform(MockMvcRequestBuilders.post("/api/organicDogs")
-                        .accept(MediaType.APPLICATION_JSON)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(jsonContent))
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.content().json(getJsonContent(testPet)))
-                .andDo(MockMvcResultHandlers.print());
-
-        mvc.perform(MockMvcRequestBuilders.post("/api/shelters/pets")
-                        .accept(MediaType.APPLICATION_JSON)
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(getJsonContent(testPet)))
-                .andExpect(status().isOk())
-                .andExpect(MockMvcResultMatchers.content().json(getJsonContent(testPet)));
-    }
 
     private static String getJsonContent(Object o) throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(o);

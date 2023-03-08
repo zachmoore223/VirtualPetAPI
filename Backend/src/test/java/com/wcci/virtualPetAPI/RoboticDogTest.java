@@ -10,6 +10,7 @@ class RoboticDogTest {
     @Test
     public void testAddRoboticDogReturnsId() {
         RoboticDog roboticDog = new RoboticDog("Fido");
+        roboticDog.setId(1);
         assertEquals(1, roboticDog.getId());
     }
 

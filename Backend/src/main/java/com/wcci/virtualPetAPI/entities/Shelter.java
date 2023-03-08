@@ -24,10 +24,6 @@ public class Shelter {
     }
 
 
-
-
-
-
     public void addPet(NamedPet namedPet) {
         pets.add(namedPet);
     }
@@ -35,7 +31,6 @@ public class Shelter {
     public void removePet(NamedPet namedPet) {
         pets.remove(namedPet);
     }
-
 
     public Collection<NamedPet> getAllPets() {
         return pets;
