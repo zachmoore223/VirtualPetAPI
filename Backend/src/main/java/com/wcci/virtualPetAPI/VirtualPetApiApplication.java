@@ -2,13 +2,12 @@ package com.wcci.virtualPetAPI;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.ImportResource;
 
 @SpringBootApplication
 public class VirtualPetApiApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(VirtualPetApiApplication.class, args);
-	}
+    public static void main(String[] args) {
+        SpringApplication.run(VirtualPetApiApplication.class, args);
+    }
 
 }

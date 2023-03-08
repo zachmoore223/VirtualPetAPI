@@ -1,5 +1,7 @@
 package com.wcci.virtualPetAPI.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import javax.persistence.*;
 
 // @JsonDeserialize(as = OrganicDog.class)
@@ -11,6 +13,7 @@ abstract public class NamedPet {
     private long id;
     private String petName;
     @ManyToOne()
+    @JsonIgnore
     private Shelter shelter;
 
     public NamedPet(String petName) {
@@ -25,7 +28,7 @@ abstract public class NamedPet {
     }
 
     public void setId(long id) {
-        this.id= id;
+        this.id = id;
     }
 
     public String getPetName() {
@@ -35,6 +38,7 @@ abstract public class NamedPet {
     public void setShelter(Shelter shelter) {
         this.shelter = shelter;
     }
+
     public Shelter getShelter() {
         return shelter;
     }

@@ -1,7 +1,6 @@
 package com.wcci.virtualPetAPI.entities;
 
 import javax.persistence.Entity;
-import java.util.Objects;
 
 @Entity
 public class OrganicDog extends NamedPet {

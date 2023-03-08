@@ -25,6 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 class PetControllerTest {
     @Autowired
     private MockMvc mvc;
+
     //test adding 1 organic dog
     @Test
     public void addOneOrgDog() throws Exception {
