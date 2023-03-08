@@ -1,5 +1,6 @@
 body{
     background-image: url("/Interactive-Ball-Petstest.jpg");
+    background-size: cover;
 }
 
 h1{
