@@ -1,11 +1,14 @@
 package com.wcci.virtualPetAPI.entities;
 
+import javax.persistence.Entity;
+
+@Entity
 public class RoboticDog extends NamedPet {
 
     private int oil;
 
-    public RoboticDog(long id, String name) {
-        super(id, name);
+    public RoboticDog(String name) {
+        super(name);
     }
 
     public int getOil() {

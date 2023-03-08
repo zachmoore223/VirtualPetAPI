@@ -1,11 +1,19 @@
 package com.wcci.virtualPetAPI.entities;
 
+import javax.persistence.Entity;
+import java.util.Objects;
+
+@Entity
 public class OrganicDog extends NamedPet {
 
     private int hunger;
 
-    public OrganicDog(long id, String name) {
-        super(id, name);
+    public OrganicDog(String name) {
+        super(name);
+    }
+
+    public OrganicDog() {
+        super();
     }
 
     public int getHunger() {

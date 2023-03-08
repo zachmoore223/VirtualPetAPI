@@ -1,29 +1,41 @@
 package com.wcci.virtualPetAPI.entities;
 
-import com.wcci.virtualPetAPI.entities.Shelter;
+import javax.persistence.*;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-
-@Entity()
+// @JsonDeserialize(as = OrganicDog.class)
+@Entity
+@Inheritance(strategy = InheritanceType.TABLE_PER_CLASS)
 abstract public class NamedPet {
     @Id
-    final private long petID;
-    final private String petName;
+    @GeneratedValue()
+    private long id;
+    private String petName;
     @ManyToOne()
     private Shelter shelter;
 
-    public NamedPet(long petID, String petName) {
-        this.petID = petID;
+    public NamedPet(String petName) {
         this.petName = petName;
     }
 
-    public long getId() {
-        return petID;
+    public NamedPet() {
     }
 
-    public String getName() {
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id= id;
+    }
+
+    public String getPetName() {
         return petName;
+    }
+
+    public void setShelter(Shelter shelter) {
+        this.shelter = shelter;
+    }
+    public Shelter getShelter() {
+        return shelter;
     }
 }

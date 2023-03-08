@@ -9,26 +9,27 @@ class OrganicDogTest {
 
     @Test
     public void testAddOrganicDogReturnsId() {
-        OrganicDog organicDog = new OrganicDog(1, "Fido");
+        OrganicDog organicDog = new OrganicDog("Fido");
+        organicDog.setId(1);
         assertEquals(1, organicDog.getId());
     }
 
     @Test
     public void testConstructAndReturnName() {
-        OrganicDog organicDog = new OrganicDog(1, "Fido");
-        assertEquals("Fido", organicDog.getName());
+        OrganicDog organicDog = new OrganicDog("Fido");
+        assertEquals("Fido", organicDog.getPetName());
     }
 
     @Test
     public void testSetAndGetHunger() {
-        OrganicDog organicDog = new OrganicDog(1, "Fido");
+        OrganicDog organicDog = new OrganicDog("Fido");
         organicDog.setHunger(1);
         assertEquals(1, organicDog.getHunger());
     }
 
     @Test
     public void testFeedSetsHungerToZero() {
-        OrganicDog organicDog = new OrganicDog(1, "Fido");
+        OrganicDog organicDog = new OrganicDog("Fido");
         organicDog.setHunger(10);
         organicDog.feed();
         assertEquals(0, organicDog.getHunger());
