@@ -1,28 +1,22 @@
 body{
-    background-image: url("\Interactive-Ball-Petstest.jpg");
+    background-image: url("/Interactive-Ball-Petstest.jpg");
 }
 
 h1{
     font-family: 'Oswald', sans-serif;
     color: darkblue;
-    text-decoration: underline;
+    /*background-color: darkblue;*/
     text-align: center;
 }
 
 h2{
     color: darkblue;
-    font-family: 'Oswald', sans-serif;
-    text-align: center;
-}
-
-h3{
-    color: darkblue;
     text-decoration: underline;
     font-family: 'Oswald', sans-serif;
     text-align: center;
 }
 
-ul{
+table{
     background-color: rgb(1, 148, 116);
     color: white;
     font-family: 'Ubuntu', sans-serif;
