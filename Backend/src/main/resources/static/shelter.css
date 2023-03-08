@@ -1,5 +1,6 @@
 body{
     background-image: url("/Interactive-Ball-Petstest.jpg");
+    background-size: cover;
 }
 
 h1{
@@ -33,4 +34,20 @@ form{
     border-color:antiquewhite;
     margin-left: auto;
     text-align: center;
+}
+
+#submit{
+    float: right;
+    margin-right: 70px;
+    background-color: rgb(1, 148, 116);
+    color: white;
+    border-color: white;
+}
+
+#back{
+    float: left;
+    margin-left: 70px;
+    background-color: rgb(1, 148, 116);
+    color: white;
+    border-color: white;
 }
