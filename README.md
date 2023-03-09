@@ -1,3 +1,7 @@
+`mysql -u root -e "drop database rangers"`
+`mysql -u root -e "create database rangers"`
+
+
 ## Virtual Pet API
 
 Now we will take Virtual pet to its logical conclusion! A fully functional MVC application! Your team will choose one of
