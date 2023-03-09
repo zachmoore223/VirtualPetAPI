@@ -43,7 +43,7 @@ public class PetController {
 
 //    curl -s -X POST http://localhost:8080/api/shelters/1/organicDogs -H 'Content-Type: application/json' -d '{"name": "testDog"}'
 
-    @PostMapping("/api/shelters/{shelter_id}/organicDogs")
+    @PostMapping("/api/shelters/{shelter_id}/organicDog")
     public OrganicDog addPet(@RequestBody OrganicDog organicDog, final @PathVariable Long shelter_id) {
         organicDog.setShelter(shelterRepository.findById(shelter_id).get());
         namedPetRepository.save(organicDog);
