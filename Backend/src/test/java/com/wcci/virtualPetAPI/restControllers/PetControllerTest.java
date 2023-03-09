@@ -41,9 +41,9 @@ class PetControllerTest {
 
 
         final OrganicDog testPet = new OrganicDog("Fido");
-        testPet.setId(2);
+        testPet.setId(1);
         String jsonContent = getJsonContent(testPet);
-        mvc.perform(MockMvcRequestBuilders.post("/api/shelters/1/organicDogs")
+        mvc.perform(MockMvcRequestBuilders.post("/api/shelters/1/organicDog")
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonContent))
