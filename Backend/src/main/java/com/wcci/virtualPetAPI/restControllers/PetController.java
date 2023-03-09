@@ -2,8 +2,10 @@ package com.wcci.virtualPetAPI.restControllers;
 
 import com.wcci.virtualPetAPI.entities.NamedPet;
 import com.wcci.virtualPetAPI.entities.OrganicDog;
+import com.wcci.virtualPetAPI.entities.RoboticDog;
 import com.wcci.virtualPetAPI.repositories.NamedPetRepository;
 import com.wcci.virtualPetAPI.repositories.OrganicDogRepository;
+import com.wcci.virtualPetAPI.repositories.RoboticDogRepository;
 import com.wcci.virtualPetAPI.repositories.ShelterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -16,12 +18,16 @@ public class PetController {
     final NamedPetRepository namedPetRepository;
     final OrganicDogRepository organicDogRepository;
 
+    final RoboticDogRepository roboticDogRepository;
+
     public PetController(@Autowired ShelterRepository shelterRepository,
                          NamedPetRepository namedPetRepository,
-                         OrganicDogRepository organicDogRepository) {
+                         OrganicDogRepository organicDogRepository,
+                         RoboticDogRepository roboticDogRepository) {
         this.shelterRepository = shelterRepository;
         this.namedPetRepository = namedPetRepository;
         this.organicDogRepository = organicDogRepository;
+        this.roboticDogRepository = roboticDogRepository;
     }
 
     //    curl -X GET http://localhost:8080/api/shelters/1/pets -H 'Content-Type: application/json'
@@ -35,12 +41,20 @@ public class PetController {
         return namedPetRepository.save(namedPet);
     }
 
-//    curl -s -X POST http://localhost:8080/api/shelters/1/organicDogs -H 'Content-Type: application/json' -d '{"petName": "testDog"}'
+//    curl -s -X POST http://localhost:8080/api/shelters/1/organicDogs -H 'Content-Type: application/json' -d '{"name": "testDog"}'
 
     @PostMapping("/api/shelters/{shelter_id}/organicDog")
     public OrganicDog addPet(@RequestBody OrganicDog organicDog, final @PathVariable Long shelter_id) {
         organicDog.setShelter(shelterRepository.findById(shelter_id).get());
         namedPetRepository.save(organicDog);
         return organicDog;
+    }
+
+    //    curl -s -X POST http://localhost:8080/api/shelters/1/roboticDogs -H 'Content-Type: application/json' -d '{"name": "testDog"}'
+    @PostMapping("/api/shelters/{shelter_id}/roboticDogs")
+    public RoboticDog addRoboticPet(@RequestBody RoboticDog roboticDog, final @PathVariable Long shelter_id) {
+        roboticDog.setShelter(shelterRepository.findById(shelter_id).get());
+       namedPetRepository.save(roboticDog);
+        return roboticDog;
     }
 }
