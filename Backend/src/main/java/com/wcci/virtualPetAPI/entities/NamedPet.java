@@ -32,7 +32,7 @@ abstract public class NamedPet {
     }
 
     public String getName() {
-        return name;
+        return this.name;
     }
 
     public void setShelter(Shelter shelter) {

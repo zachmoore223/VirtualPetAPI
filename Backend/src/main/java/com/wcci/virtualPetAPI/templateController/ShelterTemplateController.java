@@ -1,20 +1,23 @@
 package com.wcci.virtualPetAPI.templateController;
 
+import com.wcci.virtualPetAPI.entities.OrganicDog;
 import com.wcci.virtualPetAPI.entities.Shelter;
+import com.wcci.virtualPetAPI.repositories.NamedPetRepository;
+import com.wcci.virtualPetAPI.repositories.OrganicDogRepository;
 import com.wcci.virtualPetAPI.repositories.ShelterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 @Controller
 public class ShelterTemplateController {
     final private ShelterRepository shelterRepository;
+    final private OrganicDogRepository organicDogRepository;
 
-    public ShelterTemplateController(@Autowired ShelterRepository shelterRepository) {
+    public ShelterTemplateController(@Autowired ShelterRepository shelterRepository, NamedPetRepository namedPetRepository, OrganicDogRepository organicDogRepository) {
         this.shelterRepository = shelterRepository;
+        this.organicDogRepository = organicDogRepository;
     }
 
     @GetMapping("/shelters")
@@ -27,7 +30,7 @@ public class ShelterTemplateController {
     public String getShelter(Model model, @PathVariable long shelter_id) {
         model.addAttribute("shelter", shelterRepository.findById(shelter_id).get());
         model.addAttribute("pets", shelterRepository.findById(shelter_id).get().getAllPets());
-        return "shelter.html";
+        return "specificShelter.html";
     }
 
     @PostMapping("/shelters")
@@ -35,5 +38,21 @@ public class ShelterTemplateController {
         shelterRepository.save(shelter);
         return "redirect:/shelters";
     }
+//    @PostMapping("/shelters/{shelter_id}/organicDog")
+//    public String postPet(@ModelAttribute("organicDog") OrganicDog organicDog, @PathVariable long shelter_id) {
+//        organicDog.setShelter(shelterRepository.findById(shelter_id).get());
+//        organicDogRepository.save(organicDog);
+//        String returnAddress = "redirect:/shelters/1" + shelter_id;
+//        return returnAddress;
+//    }
 
+    @PostMapping("/shelters/{shelter_id}/organicDog")
+    public String addPet(OrganicDog organicDog, @PathVariable Long shelter_id ) {
+        organicDog.setShelter(shelterRepository.findById(shelter_id).get());
+        organicDogRepository.save(organicDog);
+        String returnAddress = "redirect:/shelters/" + shelter_id;
+        return returnAddress;
+    }
+
+//<textarea name="name" id="name"></textarea>
 }
