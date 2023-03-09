@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 @Entity
 public class OrganicDog extends NamedPet {
 
-    private int hunger;
+    private int hunger = 6;
 
     public OrganicDog(String name) {
         super(name);
@@ -24,6 +24,6 @@ public class OrganicDog extends NamedPet {
     }
 
     public void feed() {
-        this.hunger = 0;
+        hunger--;
     }
 }

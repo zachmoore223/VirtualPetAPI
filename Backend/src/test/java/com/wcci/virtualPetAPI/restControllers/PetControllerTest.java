@@ -52,6 +52,7 @@ class PetControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+
     private static String getJsonContent(Object o) throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(o);
     }

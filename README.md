@@ -27,7 +27,7 @@ everything you’ve learned up until this point, and will also be your first gro
     * curl -X GET http://localhost:8080/api/shelters/1/organicDogs -H 'Content-Type: application/json'
 
 * POST AN ORGANIC DOG:
-    * curl -s -X POST http://localhost:8080/api/shelters/1/organicDogs -H 'Content-Type: application/json' -d '{"
+    * curl -s -X POST http://localhost:8080/api/shelters/1/organicDog -H 'Content-Type: application/json' -d '{"
       petName": "testDog"}'
 
 # Mappings
