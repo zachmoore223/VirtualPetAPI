@@ -38,16 +38,9 @@ public class ShelterTemplateController {
         shelterRepository.save(shelter);
         return "redirect:/shelters";
     }
-//    @PostMapping("/shelters/{shelter_id}/organicDog")
-//    public String postPet(@ModelAttribute("organicDog") OrganicDog organicDog, @PathVariable long shelter_id) {
-//        organicDog.setShelter(shelterRepository.findById(shelter_id).get());
-//        organicDogRepository.save(organicDog);
-//        String returnAddress = "redirect:/shelters/1" + shelter_id;
-//        return returnAddress;
-//    }
 
     @PostMapping("/shelters/{shelter_id}/organicDog")
-    public String addPet(@RequestParam String name, @PathVariable Long shelter_id ) {
+    public String addPet(@RequestParam String name, @PathVariable Long shelter_id) {
         OrganicDog organicDog = new OrganicDog(name);
         organicDog.setShelter(shelterRepository.findById(shelter_id).get());
         organicDogRepository.save(organicDog);
@@ -55,5 +48,11 @@ public class ShelterTemplateController {
         return returnAddress;
     }
 
-//<textarea name="name" id="name"></textarea>
+    @PutMapping("/shelters/{shelter_id}/organicDog/{organicDog_id}")
+    public void feedPet(@PathVariable Long shelter_id, @PathVariable Long organicDog_id) {
+        organicDogRepository.findById(organicDog_id).get().feed();
+        organicDogRepository.save(organicDogRepository.findById(organicDog_id).get());
+    }
+
+
 }

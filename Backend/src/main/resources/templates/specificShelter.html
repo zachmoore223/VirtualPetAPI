@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:http="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,6 +8,26 @@
     <link rel="stylesheet" href="/shelter.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,300&display=swap" rel="stylesheet">
+    <script>
+        function refreshPage(){
+            window.location.reload();
+        }
+        function feed() {
+            fetch("http://localhost:8080/shelters/1/organicDog/1", {
+            method: "PUT",
+                })
+            .then((response) => response.json())
+            .then((result) => {
+            console.log("Success:", result);
+            })
+            .catch((error) => {
+            console.error("Error:", error);
+            });
+
+        }
+
+
+    </script>
 </head>
 
 <body>
@@ -30,7 +50,11 @@
         <td th:text="${pet.id}"></td>
         <td th:text="${pet.name}"></td>
         <td th:text="${pet.hunger}"></td>
-        <td><button>Feed</button></td>
+        <td>
+            <button onclick="feed(), refreshPage()">
+                Feed
+            </button>
+        </td>
     </tr>
     </tbody>
 </table>
@@ -38,7 +62,7 @@
     <form style="border-style: solid; width: 200px;"
           th:action="@{'/shelters/' + ${shelter.id} + '/organicDog'}" method="post">
         <label for="name">Add an Organic Dog:</label>
-        <input type="text" id="name"  name="name"><br>
+        <input type="text" id="name" name="name"><br>
         <input type="submit" value="Submit">
     </form>
 </div>
