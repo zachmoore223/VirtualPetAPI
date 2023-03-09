@@ -11,6 +11,10 @@ public class RoboticDog extends NamedPet {
         super(name);
     }
 
+    public RoboticDog() {
+        super();
+    }
+
     public int getOil() {
         return oil;
     }
