@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virtual Pet</title>
-    <link rel="stylesheet" href="/shelters.css">
+    <link rel="stylesheet" href="/shelter.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,300&display=swap" rel="stylesheet">
 </head>
@@ -35,15 +35,12 @@
     </tbody>
 </table>
 <div>
-
     <form style="border-style: solid; width: 200px;"
-          th:action="@{'/shelters/' + ${shelter.id} + '/organicDog'}" th:object="${organicDog}" method="post">
+          th:action="@{'/shelters/' + ${shelter.id} + '/organicDog'}" method="post">
         <label for="name">Add an Organic Dog:</label>
         <input type="text" id="name"  name="name"><br>
-<!--        <input type="text" th:field="*{name}" name="name">-->
         <input type="submit" value="Submit">
     </form>
-
 </div>
 <a href="/shelters">
     <button id="back">Back to shelter selection</button>
