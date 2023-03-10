@@ -33,4 +33,11 @@ class OrganicCatTest {
         organicCat.feed();
         assertEquals(9, organicCat.getHunger());
     }
+
+    @Test
+    public void testTick() {
+        OrganicCat organicCat = new OrganicCat("Tom");
+        organicCat.tick();
+        assertEquals(7, organicCat.getHunger());
+    }
 }

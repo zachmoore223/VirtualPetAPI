@@ -42,4 +42,8 @@ abstract public class NamedPet {
     public Shelter getShelter() {
         return shelter;
     }
+
+    public void tick() {
+
+    }
 }

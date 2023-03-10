@@ -5,7 +5,7 @@ import javax.persistence.Entity;
 @Entity
 public class RoboticDog extends NamedPet {
 
-    private int oil;
+    private int oil = 6;
 
     public RoboticDog(String name) {
         super(name);
@@ -24,6 +24,11 @@ public class RoboticDog extends NamedPet {
     }
 
     public void giveOil() {
-        this.oil = 0;
+        oil--;
+    }
+
+    @Override
+    public void tick() {
+        oil++;
     }
 }
