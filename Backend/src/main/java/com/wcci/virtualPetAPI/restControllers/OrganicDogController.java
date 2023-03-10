@@ -44,4 +44,12 @@ public class OrganicDogController {
         organicDogRepository.findById(organicDog_id).get().feed();
         organicDogRepository.save(organicDogRepository.findById(organicDog_id).get());
     }
+
+    //curl -X DELETE http://localhost:8080/api/organicDog/1 -H 'Content-Type: application/json'
+    @DeleteMapping("/api/organicDog/{organicDog_id}")
+    public void deleteOrganicDog(@PathVariable final long organicDog_id) {
+        organicDogRepository.delete(organicDogRepository.findById(organicDog_id).get());
+    }
+
+
 }

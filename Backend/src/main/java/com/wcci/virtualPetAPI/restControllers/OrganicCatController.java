@@ -42,5 +42,9 @@ public class OrganicCatController {
         organicCatRepository.save(organicCat);
     }
 
-
+    //curl -X DELETE http://localhost:8080/api/organicCat/1 -H 'Content-Type: application/json'
+    @DeleteMapping("/api/organicCat/{organicCat_id}")
+    public void deleteOrganicCat(@PathVariable final long organicCat_id) {
+        organicCatRepository.delete(organicCatRepository.findById(organicCat_id).get());
+    }
 }
