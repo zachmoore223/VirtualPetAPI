@@ -9,14 +9,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,300&display=swap" rel="stylesheet">
     <script>
-    let num = 0;
+    let petID = 0;
     let shelterID = 0;
         function refreshPage(){
             window.location.reload();
         }
 
-        function feed(num) {
-            fetch("http://localhost:8080/shelters/1/organicDog/" + num, {
+        function feed(petID) {
+            fetch("http://localhost:8080/api/organicDog/" + petID, {
             method: "PUT",
                 })
             .then((response) => response.json())
@@ -28,8 +28,8 @@
             });
         }
 
-        function adopt(num) {
-            fetch("http://localhost:8080/shelters/1/organicDog/" + num, {
+        function adopt(petID) {
+            fetch("http://localhost:8080/api/organicDog/" + petID, {
             method: "DELETE",
                 })
             .then((response) => response.json())

@@ -48,12 +48,6 @@ public class ShelterTemplateController {
         return returnAddress;
     }
 
-    @PutMapping("/shelters/{shelter_id}/organicDog/{organicDog_id}")
-    public void feedPet(@PathVariable Long shelter_id, @PathVariable Long organicDog_id) {
-        organicDogRepository.findById(organicDog_id).get().feed();
-        organicDogRepository.save(organicDogRepository.findById(organicDog_id).get());
-    }
-
     @PutMapping("/shelters/{shelter_id}")
     public void tickAll(@PathVariable Long shelter_id) {
         shelterRepository.findById(shelter_id).get().tickAll();
