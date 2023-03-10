@@ -1,4 +1,4 @@
-package com.wcci.virtualPetAPI;
+package com.wcci.virtualPetAPI.entities;
 
 import com.wcci.virtualPetAPI.entities.OrganicDog;
 import org.junit.jupiter.api.Test;
@@ -28,7 +28,7 @@ class OrganicDogTest {
     }
 
     @Test
-    public void testFeedSetsHungerToZero() {
+    public void testFeedReducerHunger() {
         OrganicDog organicDog = new OrganicDog("Fido");
         organicDog.setHunger(10);
         organicDog.feed();

@@ -1,4 +1,4 @@
-package com.wcci.virtualPetAPI;
+package com.wcci.virtualPetAPI.entities;
 
 import com.wcci.virtualPetAPI.entities.OrganicDog;
 import com.wcci.virtualPetAPI.entities.RoboticDog;
