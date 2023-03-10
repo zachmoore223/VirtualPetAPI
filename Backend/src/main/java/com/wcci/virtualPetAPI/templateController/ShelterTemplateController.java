@@ -54,5 +54,10 @@ public class ShelterTemplateController {
         organicDogRepository.save(organicDogRepository.findById(organicDog_id).get());
     }
 
+    @PutMapping("/shelters/{shelter_id}")
+    public void tickAll(@PathVariable Long shelter_id) {
+        shelterRepository.findById(shelter_id).get().tickAll();
+        shelterRepository.save(shelterRepository.findById(shelter_id).get());
+    }
 
 }
