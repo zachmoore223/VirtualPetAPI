@@ -26,6 +26,12 @@ public class ShelterTemplateController {
         return "shelters.html";
     }
 
+    @GetMapping("/shelters/{shelter_id}/specificShelter.js")
+    public String getJavaScript(Model model, @PathVariable long shelter_id) {
+        model.addAttribute("shelter", shelterRepository.findById(shelter_id).get());
+        return "specificShelter.js";
+    }
+
     @GetMapping("/shelters/{shelter_id}")
     public String getShelter(Model model, @PathVariable long shelter_id) {
         model.addAttribute("shelter", shelterRepository.findById(shelter_id).get());

@@ -13,7 +13,6 @@ public class OrganicCatController {
     final NamedPetRepository namedPetRepository;
     final OrganicCatRepository organicCatRepository;
 
-
     public OrganicCatController(@Autowired ShelterRepository shelterRepository,
                                 NamedPetRepository namedPetRepository,
                                 OrganicCatRepository organicCatRepository) {
