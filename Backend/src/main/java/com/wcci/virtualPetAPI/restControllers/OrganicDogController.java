@@ -13,17 +13,17 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Collection;
 
 @RestController
-public class PetController {
+public class OrganicDogController {
     final ShelterRepository shelterRepository;
     final NamedPetRepository namedPetRepository;
     final OrganicDogRepository organicDogRepository;
 
     final RoboticDogRepository roboticDogRepository;
 
-    public PetController(@Autowired ShelterRepository shelterRepository,
-                         NamedPetRepository namedPetRepository,
-                         OrganicDogRepository organicDogRepository,
-                         RoboticDogRepository roboticDogRepository) {
+    public OrganicDogController(@Autowired ShelterRepository shelterRepository,
+                                NamedPetRepository namedPetRepository,
+                                OrganicDogRepository organicDogRepository,
+                                RoboticDogRepository roboticDogRepository) {
         this.shelterRepository = shelterRepository;
         this.namedPetRepository = namedPetRepository;
         this.organicDogRepository = organicDogRepository;

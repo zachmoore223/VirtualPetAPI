@@ -1,4 +1,4 @@
-package com.wcci.virtualPetAPI;
+package com.wcci.virtualPetAPI.entities;
 
 import com.wcci.virtualPetAPI.entities.RoboticDog;
 import org.junit.jupiter.api.Test;

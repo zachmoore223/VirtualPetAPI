@@ -2,7 +2,7 @@ package com.wcci.virtualPetAPI.restControllers;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.wcci.virtualPetAPI.entities.OrganicDog;
+import com.wcci.virtualPetAPI.entities.OrganicCat;
 import com.wcci.virtualPetAPI.entities.Shelter;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,19 +16,20 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
 @DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD) // reset the database for each test
 @AutoConfigureMockMvc
-class PetControllerTest {
+class OrganicCatControllerTest {
     @Autowired
     private MockMvc mvc;
 
-    //test adding 1 organic dog
+    //test adding 1 organic cat
     @Test
-    public void addOneOrgDog() throws Exception {
+    public void addOneOrgCat() throws Exception {
         final Shelter shelter = new Shelter("Columbus");
         shelter.setId(1);
         mvc.perform(MockMvcRequestBuilders.post("/api/shelters")
@@ -40,10 +41,10 @@ class PetControllerTest {
                 .andDo(MockMvcResultHandlers.print());
 
 
-        final OrganicDog testPet = new OrganicDog("Fido");
+        final OrganicCat testPet = new OrganicCat("Fido");
         testPet.setId(1);
         String jsonContent = getJsonContent(testPet);
-        mvc.perform(MockMvcRequestBuilders.post("/api/shelters/1/organicDog")
+        mvc.perform(MockMvcRequestBuilders.post("/api/shelters/1/organicCat")
                         .accept(MediaType.APPLICATION_JSON)
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(jsonContent))
