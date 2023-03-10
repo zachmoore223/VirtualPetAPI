@@ -5,6 +5,7 @@ import com.wcci.virtualPetAPI.repositories.NamedPetRepository;
 import com.wcci.virtualPetAPI.repositories.RoboticCatRepository;
 import com.wcci.virtualPetAPI.repositories.ShelterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -29,5 +30,11 @@ public class RoboticCatController {
         roboticCat.setShelter(shelterRepository.findById(shelter_id).get());
         namedPetRepository.save(roboticCat);
         return roboticCat;
+    }
+
+    //curl -X DELETE http://localhost:8080/api/roboticCat/1 -H 'Content-Type: application/json'
+    @DeleteMapping("/api/roboticCat/{roboticCat_id}")
+    public void deleteRoboticCat(@PathVariable final long roboticCat_id) {
+        roboticCatRepository.delete(roboticCatRepository.findById(roboticCat_id).get());
     }
 }
