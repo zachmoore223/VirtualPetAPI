@@ -9,11 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,300&display=swap" rel="stylesheet">
     <script>
+    let num = 0;
         function refreshPage(){
             window.location.reload();
         }
-        function feed() {
-            fetch("http://localhost:8080/shelters/1/organicDog/1", {
+        function feed(num) {
+            fetch("http://localhost:8080/shelters/1/organicDog/" + num, {
             method: "PUT",
                 })
             .then((response) => response.json())
@@ -23,8 +24,17 @@
             .catch((error) => {
             console.error("Error:", error);
             });
-
         }
+
+
+
+
+
+
+
+
+
+
 
 
     </script>
@@ -43,6 +53,7 @@
         <th>Id</th>
         <th>Name</th>
         <th>Hunger Level</th>
+        <th>Actions</th>
     </tr>
     </thead>
     <tbody>
@@ -51,7 +62,7 @@
         <td th:text="${pet.name}"></td>
         <td th:text="${pet.hunger}"></td>
         <td>
-            <button onclick="feed(), refreshPage()">
+            <button th:onclick="feed([[${pet.id}]]), refreshPage()">
                 Feed
             </button>
         </td>
