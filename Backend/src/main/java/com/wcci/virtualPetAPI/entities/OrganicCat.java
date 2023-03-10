@@ -26,4 +26,9 @@ public class OrganicCat extends NamedPet {
     public void feed() {
         hunger--;
     }
+
+    @Override
+    public void tick() {
+        hunger++;
+    }
 }

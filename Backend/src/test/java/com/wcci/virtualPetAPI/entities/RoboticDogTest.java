@@ -32,6 +32,13 @@ class RoboticDogTest {
         RoboticDog roboticDog = new RoboticDog("Fido");
         roboticDog.setOil(10);
         roboticDog.giveOil();
-        assertEquals(0, roboticDog.getOil());
+        assertEquals(9, roboticDog.getOil());
+    }
+
+    @Test
+    public void testTick() {
+        RoboticDog roboticDog = new RoboticDog("Fido");
+        roboticDog.tick();
+        assertEquals(7, roboticDog.getOil());
     }
 }

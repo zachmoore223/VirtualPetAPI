@@ -34,4 +34,11 @@ class OrganicDogTest {
         organicDog.feed();
         assertEquals(9, organicDog.getHunger());
     }
+
+    @Test
+    public void testTick() {
+        OrganicDog organicDog = new OrganicDog("Fido");
+        organicDog.tick();
+        assertEquals(7, organicDog.getHunger());
+    }
 }

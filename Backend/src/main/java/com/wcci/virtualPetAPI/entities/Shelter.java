@@ -25,7 +25,6 @@ public class Shelter {
         return name;
     }
 
-
     public void addPet(NamedPet namedPet) {
         pets.add(namedPet);
     }
@@ -45,4 +44,11 @@ public class Shelter {
     public long getId() {
         return id;
     }
+
+    public void tickAll() {
+        for (NamedPet pet : pets) {
+            pet.tick();
+        }
+    }
+
 }

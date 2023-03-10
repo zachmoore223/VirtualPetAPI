@@ -53,4 +53,20 @@ class ShelterTest {
 
     }
 
+    @Test
+    public void tickAllPets() {
+        OrganicDog tester1 = new OrganicDog("tester1");
+        OrganicCat tester2 = new OrganicCat("tester2");
+        RoboticDog tester3 = new RoboticDog("tester3");
+        Shelter shelter = new Shelter("Shelter 1");
+        shelter.addPet(tester1);
+        shelter.addPet(tester2);
+        shelter.addPet(tester3);
+        shelter.tickAll();
+        assertEquals(7, tester1.getHunger());
+        assertEquals(7, tester2.getHunger());
+        assertEquals(7, tester2.getHunger());
+
+    }
+
 }
