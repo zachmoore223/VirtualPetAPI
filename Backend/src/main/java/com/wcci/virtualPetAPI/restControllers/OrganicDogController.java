@@ -39,7 +39,7 @@ public class OrganicDogController {
         organicDogRepository.save(organicDog);
     }
 
-    @PutMapping("api/organicDog/{organicDog_id}")
+    @PutMapping("/api/organicDog/{organicDog_id}")
     public void feedPet(@PathVariable Long organicDog_id) {
         organicDogRepository.findById(organicDog_id).get().feed();
         organicDogRepository.save(organicDogRepository.findById(organicDog_id).get());

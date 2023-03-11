@@ -2,10 +2,18 @@ package com.wcci.virtualPetAPI.entities;
 
 import javax.persistence.Entity;
 
+import static com.wcci.virtualPetAPI.entities.NamedPet.PET_TYPE.ROBOTIC_CAT;
+
 @Entity
 public class RoboticCat extends NamedPet {
 
     private int oil;
+    private final PET_TYPE type = ROBOTIC_CAT;
+
+    public PET_TYPE getType() {
+        return type;
+    }
+
 
     public RoboticCat(String name) {
         super(name);

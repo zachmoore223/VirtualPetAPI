@@ -25,6 +25,7 @@ public class OrganicCatController {
 
 //    curl -s -X POST http://localhost:8080/api/shelters/{shelter_id}/organicCat -H 'Content-Type: application/json' -d '{"name": "testCat"}'
 
+//    "@{'/api/shelters/' + ${shelter.id} + '/organicCat'}"
     @PostMapping("/api/shelters/{shelter_id}/organicCat")
     public OrganicCat addPet(@RequestBody OrganicCat organicCat, final @PathVariable Long shelter_id) {
         organicCat.setShelter(shelterRepository.findById(shelter_id).get());
@@ -39,6 +40,12 @@ public class OrganicCatController {
             throw new Exception("Style body has id " + organicCat.getId() + " but url had id " + organicCat_id);
         }
         organicCatRepository.save(organicCat);
+    }
+
+    @PutMapping("api/organicCat/{organicCat_id}")
+    public void feedPet(@PathVariable Long organicCat_id) {
+        organicCatRepository.findById(organicCat_id).get().feed();
+        organicCatRepository.save(organicCatRepository.findById(organicCat_id).get());
     }
 
     //curl -X DELETE http://localhost:8080/api/organicCat/1 -H 'Content-Type: application/json'

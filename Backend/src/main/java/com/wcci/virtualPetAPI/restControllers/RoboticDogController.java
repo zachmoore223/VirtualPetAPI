@@ -5,10 +5,7 @@ import com.wcci.virtualPetAPI.repositories.NamedPetRepository;
 import com.wcci.virtualPetAPI.repositories.RoboticDogRepository;
 import com.wcci.virtualPetAPI.repositories.ShelterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.DeleteMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.*;
 
 public class RoboticDogController {
     final ShelterRepository shelterRepository;
@@ -30,6 +27,12 @@ public class RoboticDogController {
         roboticDog.setShelter(shelterRepository.findById(shelter_id).get());
         namedPetRepository.save(roboticDog);
         return roboticDog;
+    }
+
+    @PutMapping("/api/roboticDog/{roboticDog_id}")
+    public void oilRoboticDog(@PathVariable Long roboticDog_id) {
+        roboticDogRepository.findById(roboticDog_id).get().giveOil();
+        roboticDogRepository.save(roboticDogRepository.findById(roboticDog_id).get());
     }
 
     //curl -X DELETE http://localhost:8080/api/roboticDog/1 -H 'Content-Type: application/json'
