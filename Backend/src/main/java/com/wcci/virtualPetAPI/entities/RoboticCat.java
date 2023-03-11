@@ -7,7 +7,7 @@ import static com.wcci.virtualPetAPI.entities.NamedPet.PET_TYPE.ROBOTIC_CAT;
 @Entity
 public class RoboticCat extends NamedPet {
 
-    private int oil;
+    private int oil = 6;
     private final PET_TYPE type = ROBOTIC_CAT;
 
     public PET_TYPE getType() {
@@ -32,7 +32,7 @@ public class RoboticCat extends NamedPet {
     }
 
     public void giveOil() {
-        this.oil = 0;
+        oil--;
     }
 
     @Override
