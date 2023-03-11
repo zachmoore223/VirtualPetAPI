@@ -7,6 +7,7 @@ import com.wcci.virtualPetAPI.repositories.ShelterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@RestController
 public class RoboticDogController {
     final ShelterRepository shelterRepository;
     final NamedPetRepository namedPetRepository;
