@@ -48,7 +48,7 @@ public class ShelterTemplateController {
         return "redirect:/shelters";
     }
 
-    @PostMapping("/shelters/{shelter_id}/organicDog")
+    @PostMapping("/shelters/{shelter_id}/organicCat")
     public String addOrganicDog(@RequestParam String name, @PathVariable Long shelter_id) {
         OrganicDog organicDog = new OrganicDog(name);
         organicDog.setShelter(shelterRepository.findById(shelter_id).get());
