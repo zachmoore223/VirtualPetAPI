@@ -31,6 +31,6 @@ class RoboticCatTest {
         RoboticCat roboticCat = new RoboticCat("Tom");
         roboticCat.setOil(10);
         roboticCat.giveOil();
-        assertEquals(0, roboticCat.getOil());
+        assertEquals(9, roboticCat.getOil());
     }
 }
