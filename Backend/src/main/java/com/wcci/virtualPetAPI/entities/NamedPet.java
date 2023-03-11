@@ -12,6 +12,9 @@ abstract public class NamedPet {
     @GeneratedValue(strategy = GenerationType.SEQUENCE)
     private long id;
     private String name;
+    public enum PET_TYPE {
+        ORGANIC_DOG, ORGANIC_CAT, ROBOTIC_DOG, ROBOTIC_CAT
+    }
     @ManyToOne()
     @JsonIgnore
     private Shelter shelter;
