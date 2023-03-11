@@ -7,6 +7,7 @@ import com.wcci.virtualPetAPI.repositories.ShelterRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+@RestController
 public class RoboticCatController {
     final ShelterRepository shelterRepository;
     final NamedPetRepository namedPetRepository;
@@ -28,6 +29,7 @@ public class RoboticCatController {
         namedPetRepository.save(roboticCat);
         return roboticCat;
     }
+
     @PutMapping("/api/roboticCat/{roboticCat_id}")
     public void oilRoboticCat(@PathVariable Long roboticCat_id) {
         roboticCatRepository.findById(roboticCat_id).get().giveOil();
