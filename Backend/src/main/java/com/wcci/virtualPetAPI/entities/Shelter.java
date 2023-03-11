@@ -1,9 +1,7 @@
 package com.wcci.virtualPetAPI.entities;
 
 import javax.persistence.*;
-import java.util.Collection;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Entity()
 public class Shelter {
@@ -12,7 +10,7 @@ public class Shelter {
     private long id;
     private String name;
     @OneToMany(mappedBy = "shelter")
-    private Set<NamedPet> pets = new HashSet<>();
+    private List<NamedPet> pets = new ArrayList<NamedPet>();
 
     protected Shelter() {
     }
