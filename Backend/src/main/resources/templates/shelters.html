@@ -15,7 +15,7 @@
 
 <div id="centerdiv">
     <ul>
-        <li id="table" th:each="shelter : ${shelters}">
+        <li id="tables" th:each="shelter : ${shelters}">
             <a th:href="@{'/shelters/' + ${shelter.id}}" th:text="${shelter.name}"></a>
         </li>
     </ul>
