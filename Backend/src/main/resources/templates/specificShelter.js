@@ -5,7 +5,7 @@
             window.location.reload();
         }
 
-   function feedAllOrganicPets () {
+   function feedAllOrganicPets() {
         for (let i =0; i < pets.length; i++){
             let tempPet = pets[i];
             if (tempPet.type=='ORGANIC_CAT'){
@@ -13,6 +13,18 @@
             }
             if (tempPet.type=='ORGANIC_DOG'){
             feedOrganicDog(tempPet.id)
+            }
+        }
+    }
+
+   function oilAllRoboticPets() {
+        for (let i =0; i < pets.length; i++){
+            let tempPet = pets[i];
+            if (tempPet.type=='ROBOTIC_CAT'){
+            oilRoboticCat(tempPet.id)
+            }
+            if (tempPet.type=='ROBOTIC_DOG'){
+            oilRoboticDog(tempPet.id)
             }
         }
     }
