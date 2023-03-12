@@ -32,6 +32,7 @@ public class ShelterTemplateController {
     @GetMapping("/shelters/{shelter_id}/specificShelter.js")
     public String getJavaScript(Model model, @PathVariable long shelter_id) {
         model.addAttribute("shelter", shelterRepository.findById(shelter_id).get());
+        model.addAttribute("pets", shelterRepository.findById(shelter_id).get().getAllPets());
         return "specificShelter.js";
     }
 
@@ -56,6 +57,7 @@ public class ShelterTemplateController {
         String returnAddress = "redirect:/shelters/" + shelter_id;
         return returnAddress;
     }
+
     @PostMapping("/shelters/{shelter_id}/organicCat")
     public String addOrganicCat(@RequestParam String name, @PathVariable Long shelter_id) {
         OrganicCat organicCat = new OrganicCat(name);
@@ -64,6 +66,7 @@ public class ShelterTemplateController {
         String returnAddress = "redirect:/shelters/" + shelter_id;
         return returnAddress;
     }
+
     @PostMapping("/shelters/{shelter_id}/roboticDog")
     public String addRoboticDog(@RequestParam String name, @PathVariable Long shelter_id) {
         RoboticDog roboticDog = new RoboticDog(name);
@@ -72,6 +75,7 @@ public class ShelterTemplateController {
         String returnAddress = "redirect:/shelters/" + shelter_id;
         return returnAddress;
     }
+
     @PostMapping("/shelters/{shelter_id}/roboticCat")
     public String addRoboticCat(@RequestParam String name, @PathVariable Long shelter_id) {
         RoboticCat roboticCat = new RoboticCat(name);

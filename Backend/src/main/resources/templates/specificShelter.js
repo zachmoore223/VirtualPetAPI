@@ -1,8 +1,21 @@
     let petID = 0;
     let shelterID = 0;
+    let pets = [[${pets}]];
         function refreshPage(){
             window.location.reload();
         }
+
+   function feedAllOrganicPets () {
+        for (let i =0; i < pets.length; i++){
+            let tempPet = pets[i];
+            if (tempPet.type=='ORGANIC_CAT'){
+            feedOrganicCat(tempPet.id)
+            }
+            if (tempPet.type=='ORGANIC_DOG'){
+            feedOrganicDog(tempPet.id)
+            }
+        }
+    }
 
         function feedOrganicDog(petID) {
             fetch("http://localhost:8080/api/organicDog/" + petID, {

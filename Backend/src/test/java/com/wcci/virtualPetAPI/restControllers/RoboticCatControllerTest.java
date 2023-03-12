@@ -26,7 +26,7 @@ class RoboticCatControllerTest {
     @Autowired
     private MockMvc mvc;
 
-    //test adding 1 robotic dog
+    //test adding 1 robotic cat
     @Test
     public void addOneRoboticDog() throws Exception {
         final Shelter shelter = new Shelter("Columbus");
