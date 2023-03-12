@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Virtual Pet</title>
-    <link rel="stylesheet" href="/shelter.css">
+    <link rel="stylesheet" href="/specificShelter.css">
     <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@1,300&display=swap" rel="stylesheet">
     <script th:src="@{'/shelters/' + ${shelter.id} + '/specificShelter.js'}"></script>
@@ -20,7 +20,7 @@
 </div>
 <table th:if="${pets.size} >= 1" border="1">
     <thead>
-    <caption>
+    <caption class="caption">
         Organic Dogs
     </caption>
     <tr>
@@ -37,12 +37,12 @@
         <td th:text="${pet.name}"></td>
         <td th:text="${pet.hunger}"></td>
         <td>
-            <button th:onclick="feedOrganicDog([[${pet.id}]]), refreshPage()">
+            <button class="feed" th:onclick="feedOrganicDog([[${pet.id}]]), refreshPage()">
                 Feed
             </button>
         </td>
         <td>
-            <button th:onclick="adopt([[${pet.id}]]), refreshPage()">
+            <button class="adopt" th:onclick="adopt([[${pet.id}]]), refreshPage()">
                 Adopt
             </button>
         </td>
@@ -53,7 +53,7 @@
 </div><br><br><br>
 <table th:if="${pets.size} >= 1" border="1">
     <thead>
-    <caption>
+    <caption class="caption">
         Organic Cats
     </caption>
     <tr>
@@ -70,12 +70,12 @@
         <td th:text="${pet.name}"></td>
         <td th:text="${pet.hunger}"></td>
         <td>
-            <button th:onclick="feedOrganicCat([[${pet.id}]]), refreshPage()">
+            <button class="feed" th:onclick="feedOrganicCat([[${pet.id}]]), refreshPage()">
                 Feed
             </button>
         </td>
         <td>
-            <button th:onclick="adoptOrganicCat([[${pet.id}]]), refreshPage()">
+            <button class="adopt" th:onclick="adoptOrganicCat([[${pet.id}]]), refreshPage()">
                 Adopt
             </button>
         </td>
@@ -86,14 +86,14 @@
 </div><br><br><br>
 <table th:if="${pets.size} >= 1" border="1">
     <thead>
-    <caption>
+    <caption class="caption">
         Robotic Dogs
     </caption>
     <tr>
         <th>Id</th>
         <th>Name</th>
-        <th>Hunger Level</th>
-        <th>Oil</th>
+        <th>Oil Level</th>
+        <th>Actions</th>
         <th>Adopt</th>
     </tr>
     </thead>
@@ -103,12 +103,12 @@
         <td th:text="${pet.name}"></td>
         <td th:text="${pet.oil}"></td>
         <td>
-            <button th:onclick="oilRoboticDog([[${pet.id}]]), refreshPage()">
+            <button class="oil" th:onclick="oilRoboticDog([[${pet.id}]]), refreshPage()">
                 Oil
             </button>
         </td>
         <td>
-            <button th:onclick="adoptRoboticDog([[${pet.id}]]), refreshPage()">
+            <button class="adoptR" th:onclick="adoptRoboticDog([[${pet.id}]]), refreshPage()">
                 Adopt
             </button>
         </td>
@@ -119,7 +119,7 @@
 </div><br><br><br>
 <table th:if="${pets.size} >= 1" border="1">
     <thead>
-    <caption>
+    <caption class="caption">
         Robotic Cats
     </caption>
     <tr>
@@ -136,12 +136,12 @@
         <td th:text="${pet.name}"></td>
         <td th:text="${pet.oil}"></td>
         <td>
-            <button th:onclick="oilRoboticCat([[${pet.id}]]), refreshPage()">
+            <button class="oil" th:onclick="oilRoboticCat([[${pet.id}]]), refreshPage()">
                 Oil
             </button>
         </td>
         <td>
-            <button th:onclick="adoptRoboticCat([[${pet.id}]]), refreshPage()">
+            <button class="adoptR" th:onclick="adoptRoboticCat([[${pet.id}]]), refreshPage()">
                 Adopt
             </button>
         </td>
@@ -149,38 +149,38 @@
     </tbody>
 </table>
 <div>
-    <form style="border-style: solid; width: 200px;"
+    <form id="OrganicDog"
           th:action="@{'/shelters/' + ${shelter.id} + '/organicDog'}" method="post">
         <label for="name">Add an Organic Dog:</label>
         <input type="text" id="name" name="name"><br>
-        <input type="submit" value="Submit">
+        <input class="button" type="submit" value="Submit">
     </form>
 </div>
 <div>
-    <form style="border-style: solid; width: 200px;"
+    <form id="OrganicCat"
           th:action="@{'/shelters/' + ${shelter.id} + '/organicCat'}" method="post">
         <label for="name">Add an Organic Cat:</label>
         <input type="text" id="nameOC" name="name"><br>
-        <input type="submit" value="Submit">
+        <input class="button" type="submit" value="Submit">
     </form>
 </div>
 <div>
-    <form style="border-style: solid; width: 200px;"
+    <form id="RoboticDog"
           th:action="@{'/shelters/' + ${shelter.id} + '/roboticDog'}" method="post">
         <label for="name">Add a Robotic Dog:</label>
         <input type="text" id="nameRD" name="name"><br>
-        <input type="submit" value="Submit">
+        <input class="button" type="submit" value="Submit">
     </form>
 </div>
 <div>
-    <form style="border-style: solid; width: 200px;"
+    <form id="RoboticCat"
           th:action="@{'/shelters/' + ${shelter.id} + '/roboticCat'}" method="post">
         <label for="name">Add a Robotic Cat:</label>
         <input type="text" id="nameRC" name="name"><br>
-        <input type="submit" value="Submit">
+        <input class="button" type="submit" value="Submit">
     </form>
 </div>
 <a href="/shelters">
-    <button id="back">Back to shelter selection</button>
+    <button class="button">Back to shelter selection</button>
 </a></body>
 </html>
