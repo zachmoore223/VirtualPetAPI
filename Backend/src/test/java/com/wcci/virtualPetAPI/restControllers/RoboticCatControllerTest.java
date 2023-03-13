@@ -28,7 +28,7 @@ class RoboticCatControllerTest {
 
     //test adding 1 robotic cat
     @Test
-    public void addOneRoboticDog() throws Exception {
+    public void addOneRoboticCat() throws Exception {
         final Shelter shelter = new Shelter("Columbus");
         shelter.setId(1);
         mvc.perform(MockMvcRequestBuilders.post("/api/shelters")
@@ -50,6 +50,41 @@ class RoboticCatControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json(getJsonContent(testPet)))
                 .andDo(MockMvcResultHandlers.print());
+    }
+
+    @Test
+    public void testRoboticDog() throws Exception {
+        final Shelter shelter = new Shelter("Columbus");
+        shelter.setId(1);
+        mvc.perform(MockMvcRequestBuilders.post("/api/shelters")
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(getJsonContent(shelter)))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().json(getJsonContent(shelter)))
+                .andDo(MockMvcResultHandlers.print());
+
+
+        final RoboticCat testPet = new RoboticCat("Tom");
+        testPet.setId(1);
+        String jsonContent = getJsonContent(testPet);
+        mvc.perform(MockMvcRequestBuilders.post("/api/shelters/1/roboticCats")
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonContent))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().json(getJsonContent(testPet)))
+                .andDo(MockMvcResultHandlers.print());
+
+        mvc.perform(MockMvcRequestBuilders.put("/api/roboticCat/1")
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonContent))
+                .andExpect(status().isOk())
+                .andDo(MockMvcResultHandlers.print());
+
+        mvc.perform(MockMvcRequestBuilders.delete("/api/roboticCat/1").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
     }
 
 
