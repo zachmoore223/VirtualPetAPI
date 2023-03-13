@@ -53,7 +53,7 @@ class RoboticCatControllerTest {
     }
 
     @Test
-    public void testRoboticDog() throws Exception {
+    public void testRoboticCat() throws Exception {
         final Shelter shelter = new Shelter("Columbus");
         shelter.setId(1);
         mvc.perform(MockMvcRequestBuilders.post("/api/shelters")
