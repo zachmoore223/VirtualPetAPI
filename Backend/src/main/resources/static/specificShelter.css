@@ -53,9 +53,9 @@ table{
     background-color: rgb(1, 148, 116);
     color: white;
     border-color: white;
-    float: left;
+    float: right;
     margin-left: 84px;
-    margin-top: 90px;
+    margin-top: 25px;
 }
 
 .feed{
