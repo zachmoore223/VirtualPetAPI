@@ -2,7 +2,7 @@
     let shelterID = 0;
     let pets = [[${pets}]];
         function refreshPage(){
-            window.location.reload();
+          window.setInterval(() => window.location.reload(), 200)  ;
         }
 
    function feedAllOrganicPets() {
