@@ -152,20 +152,20 @@
     </tbody>
 </table>
 <br/><br/><br/><br/><br/><br/>
-<table border="1">
+<table class="globalActions" border="1">
     <tr>
-        <th>Global Actions:</th>
+        <th>Global Actions</th>
     </tr>
 
     <tr>
         <td>
-            <button class="oil" th:onclick="feedAllOrganicPets([[${pets}]]), refreshPage()">Feed All Organic Pets
+            <button class="globalFeed" th:onclick="feedAllOrganicPets([[${pets}]]), refreshPage()">Feed All Organic Pets
             </button>
         </td>
     </tr>
     <tr>
         <td>
-            <button class="oil" th:onclick="oilAllRoboticPets([[${pets}]]), refreshPage()">Oil All Robotic Pets
+            <button class="globalOil" th:onclick="oilAllRoboticPets([[${pets}]]), refreshPage()">Oil All Robotic Pets
             </button>
         </td>
     </tr>
@@ -203,6 +203,6 @@
     </form>
 </div>
 <a href="/shelters">
-    <button class="button">Back to shelter selection</button>
+    <button class="backToShelter">Back to shelter selection</button>
 </a></body>
 </html>
