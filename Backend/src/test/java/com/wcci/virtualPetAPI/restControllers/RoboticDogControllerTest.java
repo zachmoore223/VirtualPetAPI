@@ -50,6 +50,16 @@ class RoboticDogControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json(getJsonContent(testPet)))
                 .andDo(MockMvcResultHandlers.print());
+
+        mvc.perform(MockMvcRequestBuilders.put("/api/roboticDog/1")
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonContent))
+                .andExpect(status().isOk())
+                .andDo(MockMvcResultHandlers.print());
+
+        mvc.perform(MockMvcRequestBuilders.delete("/api/roboticDog/1").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
     }
 
 

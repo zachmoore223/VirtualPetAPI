@@ -52,6 +52,41 @@ class OrganicDogControllerTest {
                 .andDo(MockMvcResultHandlers.print());
     }
 
+    @Test
+    public void testOrgDog() throws Exception {
+        final Shelter shelter = new Shelter("Columbus");
+        shelter.setId(1);
+        mvc.perform(MockMvcRequestBuilders.post("/api/shelters")
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(getJsonContent(shelter)))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().json(getJsonContent(shelter)))
+                .andDo(MockMvcResultHandlers.print());
+
+
+        final OrganicDog testPet = new OrganicDog("Fido");
+        testPet.setId(1);
+        String jsonContent = getJsonContent(testPet);
+        mvc.perform(MockMvcRequestBuilders.post("/api/shelters/1/organicDog")
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonContent))
+                .andExpect(status().isOk())
+                .andExpect(MockMvcResultMatchers.content().json(getJsonContent(testPet)))
+                .andDo(MockMvcResultHandlers.print());
+
+        mvc.perform(MockMvcRequestBuilders.put("/api/shelters/1/organicDog/1")
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(jsonContent))
+                .andExpect(status().isOk())
+                .andDo(MockMvcResultHandlers.print());
+
+        mvc.perform(MockMvcRequestBuilders.delete("/api/organicDog/1").accept(MediaType.APPLICATION_JSON))
+                .andExpect(status().isOk());
+    }
+
 
     private static String getJsonContent(Object o) throws JsonProcessingException {
         return new ObjectMapper().writeValueAsString(o);
