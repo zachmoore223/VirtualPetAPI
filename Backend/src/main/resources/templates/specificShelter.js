@@ -148,11 +148,22 @@
             .catch((error) => {
             console.error("Error:", error);
             });
+            window.location.reload();
         }
 
-        //every 5 seconds refresh the page and tick all pets
-        window.setInterval(() => refreshPage(), 10000)
-        window.setInterval(() => tick([[${shelter.id}]]), 10000)
+    timeLeft = 10;
+    function countdown() {
+        timeLeft--;
+        document.getElementById("seconds").innerHTML = timeLeft + " seconds until next tick!";
+        if (timeLeft > 0) {
+            setTimeout(countdown, 1000);
+        }
+    };
+
+    setTimeout(countdown, 1000);
+
+    //every 10 seconds refresh the page and tick all pets
+    window.setInterval(() => tick([[${shelter.id}]]), 10000)
 
         window.onload = function() {
                         localStorage.setItem("catchName", $('#petID').val());
