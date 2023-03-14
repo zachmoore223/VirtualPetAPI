@@ -5,6 +5,14 @@
             window.location.reload();
         }
 
+    function validateForm() {
+      var x = document.forms["addPetForm"]["name"].value;
+      if (x == "" || x == null) {
+        alert("Name must be filled out");
+        return false;
+      }
+    }
+
    function feedAllOrganicPets() {
         for (let i =0; i < pets.length; i++){
             let tempPet = pets[i];
