@@ -32,7 +32,7 @@ class OrganicDogTest {
         OrganicDog organicDog = new OrganicDog("Fido");
         organicDog.setHunger(10);
         organicDog.feed();
-        assertEquals(9, organicDog.getHunger());
+        assertEquals(6, organicDog.getHunger());
     }
 
     @Test

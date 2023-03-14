@@ -32,7 +32,7 @@ public class RoboticDog extends NamedPet {
     }
 
     public void giveOil() {
-        oil--;
+        oil = oil - 4;
     }
 
     @Override
