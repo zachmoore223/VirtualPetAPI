@@ -32,7 +32,7 @@ public class OrganicCat extends NamedPet {
     }
 
     public void feed() {
-        hunger--;
+        hunger = hunger - 4;
     }
 
     @Override

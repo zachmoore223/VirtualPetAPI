@@ -31,7 +31,7 @@ class OrganicCatTest {
         OrganicCat organicCat = new OrganicCat("Tom");
         organicCat.setHunger(10);
         organicCat.feed();
-        assertEquals(9, organicCat.getHunger());
+        assertEquals(6, organicCat.getHunger());
     }
 
     @Test

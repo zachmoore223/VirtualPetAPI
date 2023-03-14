@@ -32,7 +32,7 @@ class RoboticDogTest {
         RoboticDog roboticDog = new RoboticDog("Fido");
         roboticDog.setOil(10);
         roboticDog.giveOil();
-        assertEquals(9, roboticDog.getOil());
+        assertEquals(6, roboticDog.getOil());
     }
 
     @Test

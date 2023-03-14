@@ -31,7 +31,7 @@ public class OrganicDog extends NamedPet {
     }
 
     public void feed() {
-        hunger--;
+        hunger = hunger - 4;
     }
 
     @Override
