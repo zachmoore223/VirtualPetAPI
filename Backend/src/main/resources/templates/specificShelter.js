@@ -37,19 +37,23 @@
         }
     }
 
-        function feedOrganicDog(petID) {
-            fetch("http://localhost:8080/api/organicDog/" + petID, {
-            method: "PUT",
+        function feed(petID) {
+            let pet = pets.find(item=> item.id === petID);
+
+            if (pet.type=='ORGANIC_DOG'){
+                fetch("http://localhost:8080/api/organicDog/" + petID, {
+                method: "PUT",
+                    })
+                .then((response) => response.json())
+                .then((result) => {
+                console.log("Success:", result);
                 })
-            .then((response) => response.json())
-            .then((result) => {
-            console.log("Success:", result);
-            })
-            .catch((error) => {
-            console.error("Error:", error);
-            });
-        }
-        function feedOrganicCat(petID) {
+                .catch((error) => {
+                console.error("Error:", error);
+                });
+            }
+
+            if (pet.type=='ORGANIC_CAT')
             fetch("http://localhost:8080/api/organicCat/" + petID, {
             method: "PUT",
                 })
@@ -60,22 +64,26 @@
             .catch((error) => {
             console.error("Error:", error);
             });
+
         }
 
-        function oilRoboticDog(petID) {
-            fetch("http://localhost:8080/api/roboticDog/" + petID, {
-            method: "PUT",
+        function oil(petID) {
+            let pet = pets.find(item=> item.id === petID);
+
+            if (pet.type=='ROBOTIC_DOG'){
+                fetch("http://localhost:8080/api/roboticDog/" + petID, {
+                method: "PUT",
+                    })
+                .then((response) => response.json())
+                .then((result) => {
+                console.log("Success:", result);
                 })
-            .then((response) => response.json())
-            .then((result) => {
-            console.log("Success:", result);
-            })
-            .catch((error) => {
-            console.error("Error:", error);
-            });
-        }
+                .catch((error) => {
+                console.error("Error:", error);
+                });
+            }
 
-        function oilRoboticCat(petID) {
+            if (pet.type=='ROBOTIC_CAT')
             fetch("http://localhost:8080/api/roboticCat/" + petID, {
             method: "PUT",
                 })
@@ -86,6 +94,7 @@
             .catch((error) => {
             console.error("Error:", error);
             });
+
         }
 
         function adopt(petID) {
