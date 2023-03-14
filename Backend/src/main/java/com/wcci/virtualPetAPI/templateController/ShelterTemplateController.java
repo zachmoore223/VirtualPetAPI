@@ -23,6 +23,11 @@ public class ShelterTemplateController {
         this.roboticCatRepository = roboticCatRepository;
     }
 
+    @GetMapping("/index")
+    public String getIndex() {
+        return "index.html";
+    }
+
     @GetMapping("/shelters")
     public String getShelters(Model model) {
         model.addAttribute("shelters", shelterRepository.findAll());
