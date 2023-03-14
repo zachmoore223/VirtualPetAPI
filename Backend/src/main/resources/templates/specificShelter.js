@@ -6,7 +6,7 @@
         }
 
     function validateForm() {
-      var x = document.forms["addPetForm"]["name"].value;
+      var x = document.forms["name"].value;
       if (x == "" || x == null) {
         alert("Name must be filled out");
         return false;

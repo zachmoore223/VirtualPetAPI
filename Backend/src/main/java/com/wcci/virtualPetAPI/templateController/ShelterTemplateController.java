@@ -59,8 +59,7 @@ public class ShelterTemplateController {
         OrganicDog organicDog = new OrganicDog(name);
         organicDog.setShelter(shelterRepository.findById(shelter_id).get());
         organicDogRepository.save(organicDog);
-        String returnAddress = "redirect:/shelters/" + shelter_id;
-        return returnAddress;
+        return "redirect:/shelters/" + shelter_id;
     }
 
     @PostMapping("/shelters/{shelter_id}/organicCat")
@@ -68,8 +67,7 @@ public class ShelterTemplateController {
         OrganicCat organicCat = new OrganicCat(name);
         organicCat.setShelter(shelterRepository.findById(shelter_id).get());
         organicCatRepository.save(organicCat);
-        String returnAddress = "redirect:/shelters/" + shelter_id;
-        return returnAddress;
+        return "redirect:/shelters/" + shelter_id;
     }
 
     @PostMapping("/shelters/{shelter_id}/roboticDog")
@@ -77,8 +75,7 @@ public class ShelterTemplateController {
         RoboticDog roboticDog = new RoboticDog(name);
         roboticDog.setShelter(shelterRepository.findById(shelter_id).get());
         roboticDogRepository.save(roboticDog);
-        String returnAddress = "redirect:/shelters/" + shelter_id;
-        return returnAddress;
+        return "redirect:/shelters/" + shelter_id;
     }
 
     @PostMapping("/shelters/{shelter_id}/roboticCat")
@@ -86,8 +83,7 @@ public class ShelterTemplateController {
         RoboticCat roboticCat = new RoboticCat(name);
         roboticCat.setShelter(shelterRepository.findById(shelter_id).get());
         roboticCatRepository.save(roboticCat);
-        String returnAddress = "redirect:/shelters/" + shelter_id;
-        return returnAddress;
+        return "redirect:/shelters/" + shelter_id;
     }
 
     @PutMapping("/shelters/{shelter_id}")

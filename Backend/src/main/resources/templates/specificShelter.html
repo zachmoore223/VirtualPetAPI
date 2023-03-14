@@ -171,7 +171,7 @@
     </tr>
 </table>
 <div>
-    <form name="addPetForm" id="OrganicDog" onsubmit="return validateForm()"
+    <form id="OrganicDog" onsubmit="return validateForm()"
           th:action="@{'/shelters/' + ${shelter.id} + '/organicDog'}" method="post" required>
         <label for="name">Add an Organic Dog:</label>
         <input type="text" id="name" name="name"><br>
@@ -179,7 +179,7 @@
     </form>
 </div>
 <div>
-    <form name="addPetForm" id="OrganicCat" onsubmit="return validateForm()"
+    <form id="OrganicCat" onsubmit="return validateForm()"
           th:action="@{'/shelters/' + ${shelter.id} + '/organicCat'}" method="post" required>
         <label for="name">Add an Organic Cat:</label>
         <input type="text" id="nameOC" name="name"><br>
@@ -187,7 +187,7 @@
     </form>
 </div>
 <div>
-    <form name="addPetForm" id="RoboticDog" onsubmit="return validateForm()"
+    <form id="RoboticDog" onsubmit="return validateForm()"
           th:action="@{'/shelters/' + ${shelter.id} + '/roboticDog'}" method="post" required>
         <label for="name">Add a Robotic Dog:</label>
         <input type="text" id="nameRD" name="name"><br>
@@ -195,7 +195,7 @@
     </form>
 </div>
 <div>
-    <form name="addPetForm" id="RoboticCat" onsubmit="return validateForm()"
+    <form id="RoboticCat" onsubmit="return validateForm()"
           th:action="@{'/shelters/' + ${shelter.id} + '/roboticCat'}" method="post" required>
         <label for="name">Add a Robotic Cat:</label>
         <input type="text" id="nameRC" name="name"><br>
