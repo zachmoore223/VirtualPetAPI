@@ -37,7 +37,7 @@
         <td th:text="${pet.name}"></td>
         <td th:text="${pet.hunger}"></td>
         <td>
-            <button class="feed" th:onclick="feedOrganicDog([[${pet.id}]]), refreshPage()">
+            <button class="feed" th:onclick="feed([[${pet.id}]]), refreshPage()">
                 Feed
             </button>
         </td>
@@ -71,7 +71,7 @@
         <td th:text="${pet.name}"></td>
         <td th:text="${pet.hunger}"></td>
         <td>
-            <button class="feed" th:onclick="feedOrganicCat([[${pet.id}]]), refreshPage()">
+            <button class="feed" th:onclick="feed([[${pet.id}]]), refreshPage()">
                 Feed
             </button>
         </td>
@@ -105,7 +105,7 @@
         <td th:text="${pet.name}"></td>
         <td th:text="${pet.oil}"></td>
         <td>
-            <button class="oil" th:onclick="oilRoboticDog([[${pet.id}]]), refreshPage()">
+            <button class="oil" th:onclick="oil([[${pet.id}]]), refreshPage()">
                 Oil
             </button>
         </td>
@@ -139,7 +139,7 @@
         <td th:text="${pet.name}"></td>
         <td th:text="${pet.oil}"></td>
         <td>
-            <button class="oil" th:onclick="oilRoboticCat([[${pet.id}]]), refreshPage()">
+            <button class="oil" th:onclick="oil([[${pet.id}]]), refreshPage()">
                 Oil
             </button>
         </td>
