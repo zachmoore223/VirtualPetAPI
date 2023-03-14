@@ -153,3 +153,9 @@
         //every 5 seconds refresh the page and tick all pets
         window.setInterval(() => refreshPage(), 10000)
         window.setInterval(() => tick([[${shelter.id}]]), 10000)
+
+        window.onload = function() {
+                        localStorage.setItem("catchName", $('#petID').val());
+                        }
+                        let name = localStorage.getItem('catchName');
+                        console.log('catchName');
