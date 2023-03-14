@@ -171,32 +171,32 @@
     </tr>
 </table>
 <div>
-    <form id="OrganicDog"
-          th:action="@{'/shelters/' + ${shelter.id} + '/organicDog'}" method="post">
+    <form name="addPetForm" id="OrganicDog" onsubmit="return validateForm()"
+          th:action="@{'/shelters/' + ${shelter.id} + '/organicDog'}" method="post" required>
         <label for="name">Add an Organic Dog:</label>
         <input type="text" id="name" name="name"><br>
         <input class="button" type="submit" value="Submit">
     </form>
 </div>
 <div>
-    <form id="OrganicCat"
-          th:action="@{'/shelters/' + ${shelter.id} + '/organicCat'}" method="post">
+    <form name="addPetForm" id="OrganicCat" onsubmit="return validateForm()"
+          th:action="@{'/shelters/' + ${shelter.id} + '/organicCat'}" method="post" required>
         <label for="name">Add an Organic Cat:</label>
         <input type="text" id="nameOC" name="name"><br>
         <input class="button" type="submit" value="Submit">
     </form>
 </div>
 <div>
-    <form id="RoboticDog"
-          th:action="@{'/shelters/' + ${shelter.id} + '/roboticDog'}" method="post">
+    <form name="addPetForm" id="RoboticDog" onsubmit="return validateForm()"
+          th:action="@{'/shelters/' + ${shelter.id} + '/roboticDog'}" method="post" required>
         <label for="name">Add a Robotic Dog:</label>
         <input type="text" id="nameRD" name="name"><br>
         <input class="button" type="submit" value="Submit">
     </form>
 </div>
 <div>
-    <form id="RoboticCat"
-          th:action="@{'/shelters/' + ${shelter.id} + '/roboticCat'}" method="post">
+    <form name="addPetForm" id="RoboticCat" onsubmit="return validateForm()"
+          th:action="@{'/shelters/' + ${shelter.id} + '/roboticCat'}" method="post" required>
         <label for="name">Add a Robotic Cat:</label>
         <input type="text" id="nameRC" name="name"><br>
         <input class="button" type="submit" value="Submit">
